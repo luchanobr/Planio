@@ -1,6 +1,6 @@
 async function nextPage() {
 	await setTimeout(function () {
-		location.href = `http://${location.host}/perfil1.html`
+		location.href = `http://${location.host}/plan.html`
 	}, 5000)
 }
 

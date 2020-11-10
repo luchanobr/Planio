@@ -54,7 +54,7 @@ function setImagenes() {
 		const card = document.createElement('div')
 		card.id = `${index}`
 		const s = index - images.length
-		card.innerHTML = `<div class="img-container"> <div class="img" style="background-image: url(${item.url});"></div> <div class="fondo-img" style="background: ${item.fondo}"> </div>  </div>  <h3 class="ml-05">${item.titulo}</h3> <p class="ml-05 text-light">${item.descripcion}</p>`
+		card.innerHTML = `<div class="img-container"> <div class="img" style="background-image: url(${item.url});"></div> <div class="fondo-img" style="background: ${item.fondo}"> </div>  </div>  <h3 class="ml-05 my-1">${item.titulo}</h3> <p class="ml-05 text-light my-1">${item.descripcion}</p>`
 		card.classList.add('swipe-item')
 		let z = (index + 1) * 10
 		let margin = `${index * -10}px`

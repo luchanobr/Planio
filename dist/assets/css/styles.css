@@ -31,6 +31,20 @@ body {
 	line-height: 1.5;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-top: 0;
+	margin-bottom: 0.5rem;
+}
+
+p {
+	margin-top: 0;
+	margin-bottom: 1rem;
+}
 [tabindex='-1']:focus:not(:focus-visible) {
 	outline: 0 !important;
 }
@@ -57,6 +71,13 @@ ul {
 ul {
 	list-style-type: none;
 	padding-left: 0;
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	margin-bottom: 0px;
+	width: 100%;
 }
 
 .d-flex {
@@ -156,6 +177,14 @@ fieldset {
 	justify-content: space-evenly;
 }
 
+.justify-content-between {
+	justify-content: space-between;
+}
+
+.align-self-end {
+	align-self: flex-end;
+}
+
 .input-number {
 	border: 0;
 	border-bottom: 1px solid var(--lightGrey) !important;
@@ -178,6 +207,8 @@ fieldset {
 	font-size: 1rem;
 	font-weight: 400;
 	margin-left: -45px;
+	margin-top: 0.7rem;
+	margin-bottom: 0.7rem;
 }
 .input-container {
 	width: 30%;
@@ -239,7 +270,7 @@ input:checked + .input-label {
 	min-height: 180px;
 	max-width: 90%;
 	box-shadow: 0px 0px 9px 4px rgba(207, 207, 207, 0.925);
-	border-radius: 0.35rem;
+	border-radius: 1.5rem;
 	background: linear-gradient(
 			rgba(0, 0, 0, 0),
 			rgba(0, 0, 0, 0.55),
@@ -288,7 +319,7 @@ input:checked + .input-label {
 	position: absolute;
 	height: 80%;
 	width: 100%;
-	background-color: rgb(190, 182, 140);
+	background-color: rgb(40, 146, 49);
 	border-radius: 0.4rem 0.4rem 0 0;
 	align-self: flex-end;
 }
@@ -359,8 +390,47 @@ input:checked + .input-label {
 	margin-top: 1rem;
 }
 
+.mt-05 {
+	margin-top: 0.5rem;
+}
+
 .ml-05 {
 	margin-left: 0.5rem;
+}
+
+.ml-1 {
+	margin-left: 1rem;
+}
+
+.mr-05 {
+	margin-right: 0.5rem;
+}
+
+.mr-1 {
+	margin-right: 1rem;
+}
+
+.mb-1 {
+	margin-bottom: 1rem;
+}
+
+.mb-05 {
+	margin-bottom: 0.5rem;
+}
+
+.mx-auto {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.my-05 {
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.my-1 {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 }
 
 .text-light {
@@ -379,6 +449,7 @@ input:checked + .input-label {
 .body-perfil4 h1 {
 	font-size: 1rem;
 	font-weight: 400;
+	margin-top: 0.7rem;
 }
 .body-perfil4 p {
 	max-width: 60%;
@@ -387,10 +458,7 @@ input:checked + .input-label {
 .black {
 	color: var(--black);
 }
-.mx-auto {
-	margin-left: auto;
-	margin-right: auto;
-}
+
 .w90 {
 	width: 90%;
 }
@@ -398,6 +466,17 @@ input:checked + .input-label {
 	width: 100%;
 }
 
+.w50 {
+	width: 50%;
+}
+
+.w75 {
+	width: 75%;
+}
+
+.w66 {
+	width: 66.66666666%;
+}
 .text-small {
 	font-size: 0.8rem;
 	font-weight: 400;
@@ -412,10 +491,7 @@ input:checked + .input-label {
 .brand {
 	color: var(--brand);
 }
-.my-05 {
-	margin-top: 0.5rem;
-	margin-bottom: 0.5rem;
-}
+
 .receta-container {
 	max-height: 70vh;
 	overflow-y: scroll;
@@ -423,9 +499,15 @@ input:checked + .input-label {
 	flex-wrap: wrap;
 	justify-content: center;
 }
-footer {
-	position: fixed;
-	bottom: 0;
-	margin-bottom: 0px;
-	width: 100%;
+
+.btn-card {
+	background: transparent;
+	color: #fff;
+	border: 0;
+	font-size: 95%;
+}
+
+.titulo-receta {
+	font-size: 1.2rem;
+	font-weight: 400;
 }
