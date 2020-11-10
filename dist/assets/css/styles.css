@@ -1,0 +1,431 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+@font-face {
+	src: url('../fonts/Averta\ Regular\ 400.otf') format('otf');
+	font-family: 'averta';
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--brand: #00c7ac;
+	--black: #1f1c1c;
+	--grey: #403c3c;
+	--lightGrey: #dedede;
+	--red: #f24040;
+	--Mediumgrey: #b2b2b2;
+}
+
+body {
+	margin: 0;
+	background-color: #fff;
+	text-align: left;
+	font-family: averta, -apple-system, Roboto, sans-serif, Consolas;
+	font-size: 1rem;
+	color: var(--black);
+	font-weight: 400;
+	line-height: 1.5;
+}
+
+[tabindex='-1']:focus:not(:focus-visible) {
+	outline: 0 !important;
+}
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+	display: block;
+}
+
+a,
+li,
+ol,
+ul {
+	text-decoration: none;
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 0;
+}
+
+.d-flex {
+	display: flex;
+}
+
+.flex-column {
+	flex-direction: column;
+}
+
+.flex-grow {
+	flex-grow: 1;
+}
+
+.justify-content-center {
+	justify-content: center;
+}
+
+.justify-content-stretch {
+	justify-content: stretch;
+}
+
+.align-content-center {
+	align-content: center;
+}
+
+.align-selt-center {
+	align-self: center;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.main-height {
+	min-height: 85vh;
+}
+
+.white {
+	color: white !important;
+}
+
+.fondo {
+	background: linear-gradient(rgba(0, 0, 05, 0.4), rgba(0, 0, 0, 0.4)),
+		url('../img/indexFondo.jpg');
+	background-size: cover;
+}
+
+.h1-main {
+	font-size: 2.5rem;
+	letter-spacing: 0.7px;
+}
+
+.powered {
+	font-weight: 300;
+	font-size: 0.8rem;
+	color: #fff;
+}
+
+.btn {
+	background-color: var(--black);
+	color: #fff;
+	font-weight: 200;
+	font-size: 0.8rem;
+	border-radius: 1.3rem;
+	padding: 0.8rem 1rem;
+	border: solid 0px;
+	display: block;
+	width: 90%;
+	margin: 0.5rem auto;
+}
+
+.btn-outline {
+	background-color: #fff;
+	color: var(--black);
+	font-weight: 200;
+	font-size: 0.8rem;
+	border-radius: 1.3rem;
+	padding: 0.8rem 1rem;
+	border: solid 1px var(--black);
+	display: block;
+	width: 90%;
+	margin: 0.5rem auto;
+}
+
+.display-none {
+	display: none;
+}
+
+fieldset {
+	min-width: 0;
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+.justify-content-spaceEvenly {
+	justify-content: space-evenly;
+}
+
+.input-number {
+	border: 0;
+	border-bottom: 1px solid var(--lightGrey) !important;
+	color: var(--black);
+	font-weight: 800;
+	font-size: 1.2rem;
+	width: 100%;
+	text-align: center;
+}
+
+.btn-icon {
+	border: 0;
+	border-radius: 50%;
+	width: 45px;
+	height: 45px;
+	background: transparent;
+	color: var(--Mediumgrey);
+}
+.h1-perfil {
+	font-size: 1rem;
+	font-weight: 400;
+	margin-left: -45px;
+}
+.input-container {
+	width: 30%;
+	margin: 0.5rem;
+}
+.input-container i {
+	position: absolute;
+}
+.icon-dolar {
+	padding-top: 6px;
+	padding-left: 10px;
+	font-size: 1.2rem;
+}
+
+.px-1 {
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+
+.checkbox-item {
+	width: 40%;
+	display: flex;
+	margin: 1rem 1rem 1.3rem;
+}
+
+.input-label {
+	position: relative;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	margin-bottom: 0.5rem;
+	width: 100%;
+	text-align: center;
+	font-size: 1.1rem;
+	user-select: none;
+	box-shadow: 0px 5px 6px 5px rgba(207, 207, 207, 0.925);
+}
+
+.checkbox {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+}
+
+input:checked + .input-label {
+	background: linear-gradient(rgba(0, 199, 172, 0.5), rgba(0, 199, 172, 0.05));
+}
+
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
+.card {
+	box-shadow: 0px 0px 9px 4px rgba(207, 207, 207, 0.925);
+	border-radius: 0.25rem;
+	background: #fff;
+}
+
+.card-receta {
+	min-height: 180px;
+	max-width: 90%;
+	box-shadow: 0px 0px 9px 4px rgba(207, 207, 207, 0.925);
+	border-radius: 0.35rem;
+	background: linear-gradient(
+			rgba(0, 0, 0, 0),
+			rgba(0, 0, 0, 0.55),
+			rgba(0, 0, 0, 0.9),
+			rgba(0, 0, 0, 1)
+		),
+		url('../img/receta.png');
+	margin: 0.5rem 0;
+}
+
+.swipe-container {
+	display: flex;
+	position: relative;
+	width: 100%;
+	min-height: 50vh;
+	height: 400px;
+	max-height: 70vh;
+	justify-content: center;
+	align-items: flex-end;
+	margin-top: 3rem;
+}
+
+.swipe-item {
+	width: 80%;
+	min-height: 400px;
+	position: absolute;
+	box-shadow: 0px 0px 9px 4px rgba(207, 207, 207, 0.925);
+	border-radius: 0.25rem;
+	background: #fff;
+}
+
+.img {
+	position: absolute;
+	max-width: 100%;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	z-index: 1;
+}
+
+.card-text {
+	background: #fff;
+}
+
+.fondo-img {
+	position: absolute;
+	height: 80%;
+	width: 100%;
+	background-color: rgb(190, 182, 140);
+	border-radius: 0.4rem 0.4rem 0 0;
+	align-self: flex-end;
+}
+
+.img-container {
+	display: flex;
+	position: relative;
+	width: 100%;
+	height: 230px;
+	background: transparent;
+}
+
+@keyframes salirIzq {
+	0% {
+		transform: rotateZ(0deg) translate(10px, 0px);
+	}
+
+	30% {
+		transform: rotateZ(-30deg) translate(50px, -40px);
+	}
+
+	50% {
+		transform: rotateZ(-70deg) translate(150px, -110px);
+	}
+	100% {
+		transform: rotateZ(-110deg) translate(250px, -250px);
+	}
+}
+
+@keyframes salirDer {
+	0% {
+		transform: rotateZ(0deg) translate(0px, 0px);
+	}
+
+	25% {
+		transform: rotateZ(30deg) translate(-30px, -10px);
+	}
+
+	50% {
+		transform: rotateZ(50deg) translate(-70px, -30px);
+	}
+
+	75% {
+		transform: rotateZ(80deg) translate(-120px, -50px);
+	}
+	100% {
+		transform: rotateZ(110deg) translate(-200px, -250px);
+	}
+}
+
+.salirIzq {
+	animation: salirIzq 1s linear;
+}
+
+.salirDer {
+	animation: salirDer 1s linear;
+}
+
+.bg-brand {
+	background: var(--brand) !important;
+}
+
+.bg-red {
+	background: var(--red) !important;
+}
+
+.mt-1 {
+	margin-top: 1rem;
+}
+
+.ml-05 {
+	margin-left: 0.5rem;
+}
+
+.text-light {
+	font-weight: 300;
+}
+.body-perfil4 {
+	background-color: var(--brand);
+	color: white;
+	text-align: center;
+}
+
+.body-perfil4 main {
+	min-height: 80vh;
+	align-items: center;
+}
+.body-perfil4 h1 {
+	font-size: 1rem;
+	font-weight: 400;
+}
+.body-perfil4 p {
+	max-width: 60%;
+}
+
+.black {
+	color: var(--black);
+}
+.mx-auto {
+	margin-left: auto;
+	margin-right: auto;
+}
+.w90 {
+	width: 90%;
+}
+.w100 {
+	width: 100%;
+}
+
+.text-small {
+	font-size: 0.8rem;
+	font-weight: 400;
+	color: var(--grey);
+}
+
+.text-fechas {
+	font-size: 0.7rem;
+	color: var(--Mediumgrey);
+}
+
+.brand {
+	color: var(--brand);
+}
+.my-05 {
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+.receta-container {
+	max-height: 70vh;
+	overflow-y: scroll;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+footer {
+	position: fixed;
+	bottom: 0;
+	margin-bottom: 0px;
+	width: 100%;
+}
