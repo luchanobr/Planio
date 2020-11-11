@@ -7,6 +7,8 @@ module.exports = {
 		swipe: './src/swipe.ts',
 		perfil4: './src/perfil4.ts',
 		plan: './src/plan.ts',
+		recetas: './src/recetas.ts',
+		receta: './src/receta.ts',
 	},
 	devtool: 'inline-source-map',
 	module: {

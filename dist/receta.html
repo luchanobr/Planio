@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Planio - Receta</title>
+		<script src="receta.bundle.js" defer></script>
+		<link rel="stylesheet" href="./assets/css/styles.css" />
+		<link rel="stylesheet" href="./assets/css/all.css" />
+	</head>
+	<body>
+		<main id="receta" class="h95 w100 d-flex flex-wrap main-receta">
+			<div class="receta-video">
+				<div class="w100 h15">
+					<button class="btn-icon white">
+						<i class="fas fa-arrow-left"></i>
+					</button>
+				</div>
+				<div class="w100 d-flex justify-content-center h15">
+					<button class="btn-icon white">
+						<i class="far fa-play-circle fa-6x"></i>
+					</button>
+				</div>
+				<div class="w100 h20">
+					<h1 class="white ml-2">Titulo</h1>
+				</div>
+			</div>
+			<div id="tabs" class="tabs expanded">
+				<div class="expand-container">
+					<button class="expand"></button>
+				</div>
+				<div class="tab-container" role="tablist">
+					<button class="tab-button" role="tab">Ingredientes</button>
+					<button class="tab-button" role="tab">Receta</button>
+				</div>
+				<div class="brand w100 d-flex justify-content-spaceEvenly mt-1">
+					<select aria-label="porciones" id="porciones" class="select">
+						<option value="1">1 porción</option>
+						<option value="2">2 porciones</option>
+						<option value="3">3 porciones</option>
+						<option value="4">4 porciones</option>
+					</select>
+					<span class="brand mr-05">
+						<i class="far fa-clock fa-sm"></i> 15min
+					</span>
+					<span class="ml-05">
+						<i class="fas fa-dollar-sign fa-sm"></i> 150
+					</span>
+				</div>
+
+				<div
+					id="ingredientes"
+					role="tabpanel"
+					class="tab-content w100"
+					style="display: none"
+				>
+					<div class="d-flex justify-content-spaceEvenly mt-1 w100">
+						<div
+							class="d-flex flex-column justify-content-center text-center small"
+						>
+							<span>Calorías</span><span>${}</span><span>kcal </span>
+						</div>
+						<div class="separador-datos"></div>
+						<div
+							class="d-flex flex-column justify-content-center text-center small"
+						>
+							<span>Proteinas</span><span>${}</span><span>Gramos </span>
+						</div>
+						<div class="separador-datos"></div>
+						<div
+							class="d-flex flex-column justify-content-center text-center small"
+						>
+							<span>Grasas</span><span>${}</span><span>Gramos </span>
+						</div>
+						<div class="separador-datos"></div>
+						<div
+							class="d-flex flex-column justify-content-center text-center small"
+						>
+							<span aria-label="Carbohidratos">Carbs.</span><span>${}</span
+							><span>Gramos </span>
+						</div>
+					</div>
+					<ul class="w80 text-light">
+						<li class="d-flex justify-content-between mx-1 my-1">
+							<span>Huevos</span><span>2 u</span>
+						</li>
+						<li class="d-flex justify-content-between mx-1 my-1">
+							<span>Leche</span><span>300 ml</span>
+						</li>
+						<li class="d-flex justify-content-between mx-1 my-1">
+							<span>Pollo</span><span>1 kilo</span>
+						</li>
+					</ul>
+				</div>
+				<div id="pasos" class="tab-content w100">
+					<ol class="w80">
+						<li>
+							<p class="text-light">
+								<span class="h5">Paso 1</span>
+								<br />
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
+								corrupti porro, aperiam, maxime deserunt, qui fuga non at
+							</p>
+						</li>
+					</ol>
+				</div>
+			</div>
+		</main>
+		<footer>
+			<nav class="">
+				<ul class="d-flex justify-content-spaceEvenly black">
+					<li>
+						<a href="/plan.html" class="btn-icon black"
+							><i class="fas fa-home"></i
+						></a>
+					</li>
+					<li>
+						<a href="" class="btn-icon black"> <i class="fas fa-search"></i></a>
+					</li>
+					<li>
+						<a href="" class="btn-icon black">
+							<i class="fas fa-plus-circle"></i
+						></a>
+					</li>
+					<li>
+						<a href="" class="btn-icon black">
+							<i class="fas fa-list-ul"></i
+						></a>
+					</li>
+					<li>
+						<a href="" class="btn-icon black"><i class="far fa-smile"></i></a>
+					</li>
+				</ul>
+			</nav>
+		</footer>
+	</body>
+</html>
