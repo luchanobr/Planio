@@ -6,6 +6,7 @@ module.exports = {
 		perfiles: './src/perfiles.ts',
 		swipe: './src/swipe.ts',
 		perfil4: './src/perfil4.ts',
+		plan: './src/plan.ts',
 	},
 	devtool: 'inline-source-map',
 	module: {

@@ -54,16 +54,18 @@ function setImagenes() {
 		const card = document.createElement('div')
 		card.id = `${index}`
 		const s = index - images.length
-		card.innerHTML = `<div class="img-container"> <div class="img" style="background-image: url(${item.url});"></div> <div class="fondo-img" style="background: ${item.fondo}"> </div>  </div>  <h3 class="ml-05 my-1">${item.titulo}</h3> <p class="ml-05 text-light my-1">${item.descripcion}</p>`
+		card.innerHTML = `<div id="${index}3" > <div class="img-container"> <div class="img" style="background-image: url(${item.url});"></div> <div class="fondo-img" style="background: ${item.fondo}"> </div>  </div>  <h3 class="ml-05 my-1">${item.titulo}</h3> <p class="ml-05 text-light my-1">${item.descripcion}</p> </div>`
 		card.classList.add('swipe-item')
 		let z = (index + 1) * 10
 		let margin = `${index * -10}px`
 		card.style.setProperty('z-index', z.toString())
 		card.style.setProperty('top', margin)
-		index !== images.length - 1
-			? card.style.setProperty('transform', `scale(${setScale(index)})`)
-			: null
 		swipe.appendChild(card)
+		if (index !== images.length - 1) {
+			card.style.setProperty('transform', `scale(${setScale(index)})`)
+			const hidden = document.getElementById(`${index}3`)
+			hidden.setAttribute('aria-hidden', 'true')
+		}
 	})
 
 	const img = document.getElementById(`${images.length - 1}`)
