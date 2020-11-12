@@ -174,7 +174,7 @@ footer {
 }
 
 .display-none {
-	display: none;
+	display: none !important;
 }
 
 fieldset {
@@ -487,6 +487,10 @@ a[href]:focus {
 	font-weight: 400;
 	font-size: 1.2rem;
 }
+
+.h1 {
+	font-size: 2rem;
+}
 .body-perfil4 {
 	background-color: var(--brand);
 	color: white;
@@ -513,7 +517,7 @@ a[href]:focus {
 }
 
 .black {
-	color: var(--black);
+	color: var(--black) !important;
 }
 
 .w90 {
@@ -670,7 +674,6 @@ a[href]:focus {
 }
 
 .receta-video {
-	background: #dedede;
 	position: relative;
 	display: flex;
 	flex-wrap: wrap;
@@ -734,6 +737,7 @@ a[href]:focus {
 	position: relative;
 	display: flex;
 	flex-wrap: nowrap;
+	overflow-y: hidden;
 }
 
 @keyframes expandir {
@@ -775,4 +779,11 @@ a[href]:focus {
 	margin-right: 0.5rem;
 	margin-left: 0.5rem;
 	font-size: 1rem;
+}
+.btn-float {
+	position: fixed !important;
+	bottom: 45px !important;
+	z-index: 1000 !important;
+	margin-left: 10%;
+	margin-right: auto;
 }
