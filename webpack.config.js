@@ -9,6 +9,7 @@ module.exports = {
 		plan: './src/plan.ts',
 		recetas: './src/recetas.ts',
 		receta: './src/receta.ts',
+		reemplazo: './src/reemplazo.ts',
 	},
 	devtool: 'inline-source-map',
 	module: {

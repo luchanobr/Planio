@@ -54,9 +54,9 @@ function setReceta(receta: Receta) {
 				<div class="expand-container">
 					<button class="expand" id="toggle"></button>
 				</div>
-				<div class="tab-container" role="tablist">
-					<button class="tab-button black" role="tab" id="tb1">Ingredientes</button>
-					<button class="tab-button" role="tab" id="tb2">Receta</button>
+				<div class="tab-container" role="tablist" >
+					<button class="tab-button black" role="tab" id="tb1" aria-selected="true">Ingredientes</button>
+					<button class="tab-button" role="tab" id="tb2" aria-selected="false"  >Receta</button>
 				</div>
 				<div class="brand w100 d-flex justify-content-spaceEvenly mt-1">
 					<select aria-label="porciones" id="porciones" class="select">
@@ -77,6 +77,8 @@ function setReceta(receta: Receta) {
 					id="ingredientes"
 					role="tabpanel"
 					class="tab-content w100"
+					aria-labelledby="tb1"
+					tabindex="0"
 
 				>
 					<div class="d-flex justify-content-spaceEvenly mt-1 w100">
@@ -117,7 +119,7 @@ function setReceta(receta: Receta) {
 
 					</ul>
 				</div>
-				<div id="pasos" class="tab-content w100 display-none" role="tabpanel">
+				<div id="pasos" class="tab-content w100 display-none" role="tabpanel" aria-labelledby="tb1" tabindex="0">
                     <ol class="w80" id="ol-pasos">
 					</ol>
                 </div>
@@ -129,6 +131,7 @@ function setReceta(receta: Receta) {
 	const tabs = document.getElementById('tabs')
 	let ingredientes = document.getElementById('ingredientes')
 	let pasos = document.getElementById('pasos')
+	const tabList = document.querySelector('[role="tablist"]')
 	setIngredientes()
 	setPasos()
 	let touchStarY = 0
@@ -215,6 +218,33 @@ function setReceta(receta: Receta) {
 			tabs.classList.remove('expanded')
 		}
 	}
+
+	tabList.addEventListener('keydown', arrowsMove)
+
+	function arrowsMove(e: KeyboardEvent) {
+		let button = e.target as HTMLButtonElement
+		if (
+			(e.key === 'ArrowRight' || e.key === 'ArrowLeft') &&
+			button.id === 'tb1'
+		) {
+			console.log('arrow derecha')
+			tbPasos.focus()
+		} else if (
+			(e.key === 'ArrowRight' || e.key === 'ArrowLeft') &&
+			button.id === 'tb2'
+		) {
+			console.log('arrow izq')
+			tbIngredientes.focus()
+		}
+	}
 }
 
 setReceta(receta)
+
+const reemplazar = document.getElementById('reemplazar') as HTMLButtonElement
+
+function reemplazarReceta() {
+	location.href = `http://${location.host}/reemplazo.html`
+}
+
+reemplazar.addEventListener('click', reemplazarReceta)

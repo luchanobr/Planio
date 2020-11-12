@@ -29,6 +29,7 @@ function setImagenes() {
 			const hidden = document.getElementById(`${index}3`)
 			hidden.setAttribute('aria-hidden', 'true')
 		}
+		preferencias.length !== 4 ? card.focus() : null
 	})
 
 	const img = document.getElementById(`${preferencias.length - 1}`)
@@ -63,9 +64,32 @@ function setImagenes() {
 
 setImagenes()
 
+const aceptar = document.getElementById('aceptar') as HTMLButtonElement
+const rechazar = document.getElementById('rechazar') as HTMLButtonElement
 const buttonContinuar = document.getElementById(
 	'continuar',
 ) as HTMLButtonElement
+
+aceptar.addEventListener('click', aceptarPreferencia)
+rechazar.addEventListener('click', rechazarPreferencia)
+
+function aceptarPreferencia() {
+	const img = document.getElementById(`${preferencias.length - 1}`)
+	img.classList.add('salirDer')
+	preferencias.splice(-1, 1)
+	setTimeout(() => {
+		setImagenes()
+	}, 1000)
+}
+
+function rechazarPreferencia() {
+	const img = document.getElementById(`${preferencias.length - 1}`)
+	img.classList.add('salirIzq')
+	preferencias.splice(-1, 1)
+	setTimeout(() => {
+		setImagenes()
+	}, 1000)
+}
 
 function goToPerfil4() {
 	location.href = `http://${location.host}/perfil4.html`
