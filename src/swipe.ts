@@ -1,4 +1,5 @@
 import { preferencias } from './db'
+import { volver } from './util'
 
 const swipe = document.getElementById('swipe')
 
@@ -17,7 +18,7 @@ function setImagenes() {
 		const card = document.createElement('div')
 		card.id = `${index}`
 		const s = index - preferencias.length
-		card.innerHTML = `<div id="${index}3" > <div class="img-container"> <div class="img" style="background-image: url(${item.url});"></div> <div class="fondo-img" style="background: ${item.fondo}"> </div>  </div>  <h3 class="ml-05 my-1">${item.titulo}</h3> <p class="ml-05 text-light my-1">${item.descripcion}</p> </div>`
+		card.innerHTML = `<div id="${index}3"> <div class="img-container"> <div class="img" style="background-image: url(${item.url});"  alt="${item.titulo}"></div> <div class="fondo-img" style="background: ${item.fondo}"> </div>  </div> <div tabindex="0" id="${item.titulo}"> <p class="sr-only"> Preferncias ${preferencias.length} de 4 <P> <h3 class="ml-05 my-1" >${item.titulo}</h3> <p class="ml-05 text-light my-1">${item.descripcion}</p> </div> </div>`
 		card.classList.add('swipe-item')
 		let z = (index + 1) * 10
 		let margin = `${index * -10}px`
@@ -29,7 +30,8 @@ function setImagenes() {
 			const hidden = document.getElementById(`${index}3`)
 			hidden.setAttribute('aria-hidden', 'true')
 		}
-		preferencias.length !== 4 ? card.focus() : null
+		const tituloCard = document.getElementById(item.titulo)
+		preferencias.length !== 4 ? tituloCard.focus() : null
 	})
 
 	const img = document.getElementById(`${preferencias.length - 1}`)
@@ -95,3 +97,6 @@ function goToPerfil4() {
 	location.href = `http://${location.host}/perfil4.html`
 }
 buttonContinuar.addEventListener('click', goToPerfil4, true)
+const buttonVolver = document.getElementById('volver')
+
+buttonVolver.addEventListener('click', volver)

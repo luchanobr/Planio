@@ -1,5 +1,6 @@
 import { Receta, recetas } from './db'
 import { getStorage, setStorage } from './store'
+import { volver } from './util'
 
 let receta: Receta = getStorage().receta || recetas[0]
 
@@ -37,7 +38,7 @@ function setReceta(receta: Receta) {
 		),
 		url(${receta.img}); background-size: cover">
 				<div class="w100 h15">
-					<button class="btn-icon white">
+					<button class="btn-icon white" id="volver" >
 						<i class="fas fa-arrow-left"></i>
 					</button>
 				</div>
@@ -248,3 +249,6 @@ function reemplazarReceta() {
 }
 
 reemplazar.addEventListener('click', reemplazarReceta)
+const buttonVolver = document.getElementById('volver')
+
+buttonVolver.addEventListener('click', volver)

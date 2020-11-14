@@ -10,7 +10,13 @@
 	</head>
 	<body>
 		<header class="d-flex align-content-center">
-			<button class="btn-icon"><i class="fas fa-arrow-left"></i></button>
+			<button
+				class="btn-icon"
+				aria-label="volver a la pagina anterior"
+				id="volver"
+			>
+				<i class="fas fa-arrow-left"></i>
+			</button>
 
 			<p class="perfil flex-grow text-center">Creación del perfil</p>
 		</header>
@@ -30,14 +36,14 @@
 					id="rechazar"
 					aria-label="rechazar"
 				>
-					<i class="far fa-trash-alt fa-lg"></i>
+					<i class="far fa-times fa-lg"></i>
 				</button>
 				<button
 					class="btn-icon white bg-brand px-1"
 					id="aceptar"
 					aria-label="aceptar"
 				>
-					<i class="far fa-heart fa-lg"></i>
+					<i class="far fa-check fa-lg"></i>
 				</button>
 			</div>
 			<button class="btn mt-1" id="continuar">Continuar</button>

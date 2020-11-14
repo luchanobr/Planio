@@ -1,4 +1,5 @@
 import { PlanioStore, setStorage } from './store'
+import { volver } from './util'
 
 const perfil1Button = document.getElementById(
 	'perfil1Button',
@@ -31,3 +32,7 @@ function setListeners() {
 }
 
 setListeners()
+
+const buttonVolver = document.getElementById('volver')
+
+buttonVolver.addEventListener('click', volver)
