@@ -1,9 +1,7 @@
 import { Receta } from './db'
 
 export interface PlanioStore {
-	presupuesto: string
-	alimentacion: string[]
-	preferencias: string[]
+	comidas: Receta[]
 	comida: string
 	receta: Receta
 }
