@@ -351,7 +351,7 @@ export const recetas: Receta[] = [
 		],
 	},
 	{
-		titulo: 'Receta de Ensalada de Pasta y Atún',
+		titulo: 'Ensalada de Pasta y Atún',
 		tiempo: '20min',
 		costo: 180,
 		img: 'assets/img/ensaladaPasta.jpg',
@@ -542,10 +542,10 @@ export const desayunos: Receta[] = [
 		],
 	},
 	{
-		titulo: 'Yogur de macedonia de citricos',
+		titulo: 'Yogur de citricos',
 		tiempo: '10min',
 		costo: 130,
-		img: 'assets/img/yogurCitrico.jpg',
+		img: 'assets/img/yogutCitrico.jpg',
 		datos: {
 			kcal: 80,
 			prot: 0.4,

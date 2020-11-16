@@ -1,3 +1,4 @@
+import { defaultComidas } from './db'
 import { PlanioStore, setStorage } from './store'
 import { volver } from './util'
 
@@ -18,6 +19,9 @@ const perfil2Button = document.getElementById(
 
 function goToPerfil3(event: any) {
 	event.preventDefault()
+	const data = {} as PlanioStore
+	data.comidas = defaultComidas
+	setStorage(data)
 	location.href = `http://${location.host}/perfil3.html`
 }
 

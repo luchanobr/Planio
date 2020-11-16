@@ -29,28 +29,45 @@
 			></div>
 		</main>
 		<footer>
-			<nav class="">
-				<ul class="d-flex justify-content-spaceEvenly black">
+			<nav class="" aria-labelledby="nav">
+				<ul
+					class="d-flex justify-content-spaceEvenly black"
+					aria-label="navegacion"
+					id="nav"
+				>
 					<li>
 						<a href="/plan.html" class="btn-icon black"
-							><i class="fas fa-home"></i
+							><i class="fas fa-home" aria-hidden="true"></i
 						></a>
 					</li>
 					<li>
-						<a href="" class="btn-icon black"> <i class="fas fa-search"></i></a>
-					</li>
-					<li>
-						<a href="" class="btn-icon black">
-							<i class="fas fa-plus-circle"></i
+						<a href="" class="btn-icon black" aria-label="buscar">
+							<i class="fas fa-search" aria-hidden="true"></i
 						></a>
 					</li>
 					<li>
-						<a href="" class="btn-icon black">
-							<i class="fas fa-list-ul"></i
+						<a href="" aria-label="informacion" class="btn-icon black">
+							<i class="far fa-newspaper" aria-hidden="true"></i>
+						</a>
+					</li>
+					<li>
+						<a href="" class="btn-icon black" aria-label="favoritos">
+							<i class="far fa-heart" aria-hidden="true"></i
 						></a>
 					</li>
 					<li>
-						<a href="" class="btn-icon black"><i class="far fa-smile"></i></a>
+						<a href="" class="btn-icon black" aria-label="perfil"
+							><i class="far fa-user" aria-hidden="true"></i
+						></a>
+					</li>
+					<li>
+						<a
+							href="/accesibilidad.html"
+							class="btn-icon black"
+							aria-label="declaracion de conformidad"
+						>
+							<i class="fas fa-universal-access" aria-hidden="true"></i
+						></a>
 					</li>
 				</ul>
 			</nav>

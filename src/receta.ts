@@ -1,5 +1,5 @@
 import { Receta, recetas } from './db'
-import { getStorage, setStorage } from './store'
+import { getStorage, PlanioStore, setStorage } from './store'
 import { volver } from './util'
 
 let receta: Receta = getStorage().receta || recetas[0]
@@ -30,24 +30,19 @@ function setReceta(receta: Receta) {
 		})
 	}
 
-	main.innerHTML = `<div class="receta-video"  style=" background: linear-gradient(
+	main.innerHTML = `<div class="receta-video"  id="video" style=" background: linear-gradient(
 			rgba(0, 0, 0, 0.3),
 			rgba(0, 0, 0, 0.3),
 			rgba(0, 0, 0, 0.3),
 			rgba(0, 0, 0, 0.3)
 		),
 		url(${receta.img}); background-size: cover">
-				<div class="w100 h15">
+				<div class="w100">
 					<button class="btn-icon white" id="volver" >
 						<i class="fas fa-arrow-left"></i>
 					</button>
 				</div>
-				<div class="w100 d-flex justify-content-center h15">
-					<button class="btn-icon white">
-						<i class="far fa-play-circle fa-6x"></i>
-					</button>
-				</div>
-				<div class="w100 h20">
+				<div class="w100 " >
 					<h1 class="white ml-2 h1">${receta.titulo}</h1>
 				</div>
 			</div>
@@ -55,7 +50,7 @@ function setReceta(receta: Receta) {
 				<div class="expand-container">
 					<button class="expand" id="toggle"></button>
 				</div>
-				<div class="tab-container" role="tablist" >
+				<div class="tab-container" role="tablist" aria-expanded="false" >
 					<button class="tab-button black" role="tab" id="tb1" aria-selected="true">Ingredientes</button>
 					<button class="tab-button" role="tab" id="tb2" aria-selected="false"  >Receta</button>
 				</div>
@@ -133,6 +128,8 @@ function setReceta(receta: Receta) {
 	let ingredientes = document.getElementById('ingredientes')
 	let pasos = document.getElementById('pasos')
 	const tabList = document.querySelector('[role="tablist"]')
+	const video = document.getElementById('video')
+
 	setIngredientes()
 	setPasos()
 	let touchStarY = 0
@@ -148,6 +145,8 @@ function setReceta(receta: Receta) {
 		if (!isExpanded) {
 			tabs.classList.add('expanded')
 			tabs.classList.remove('contraer')
+			tabList.setAttribute('aria-expanded', 'true')
+			video.classList.toggle('align-content-start')
 		}
 		tbIngredientes.classList.add('black')
 		tbPasos.classList.remove('black')
@@ -159,6 +158,8 @@ function setReceta(receta: Receta) {
 		if (!isExpanded) {
 			tabs.classList.add('expanded')
 			tabs.classList.remove('contraer')
+			tabList.setAttribute('aria-expanded', 'true')
+			video.classList.toggle('align-content-start')
 		}
 		tbIngredientes.classList.remove('black')
 		tbPasos.classList.add('black')
@@ -196,9 +197,13 @@ function setReceta(receta: Receta) {
 		if (isExpanded) {
 			tabs.classList.add('contraer')
 			tabs.classList.remove('expanded')
+			tabList.setAttribute('aria-expanded', 'false')
+			video.classList.toggle('align-content-start')
 		} else {
 			tabs.classList.add('expanded')
 			tabs.classList.remove('contraer')
+			tabList.setAttribute('aria-expanded', 'true')
+			video.classList.toggle('align-content-start')
 		}
 	}
 
@@ -214,9 +219,13 @@ function setReceta(receta: Receta) {
 		} else if (result > 0) {
 			tabs.classList.add('expanded')
 			tabs.classList.remove('contraer')
+			tabList.setAttribute('aria-expanded', 'false')
+			video.classList.toggle('align-content-start')
 		} else {
 			tabs.classList.add('contraer')
 			tabs.classList.remove('expanded')
+			tabList.setAttribute('aria-expanded', 'true')
+			video.classList.toggle('align-content-start')
 		}
 	}
 
@@ -245,6 +254,13 @@ setReceta(receta)
 const reemplazar = document.getElementById('reemplazar') as HTMLButtonElement
 
 function reemplazarReceta() {
+	let planioStore = getStorage()
+	let data: PlanioStore = { ...planioStore }
+	if (data.comida === 'desayuno') data.comidas[0] = receta
+	if (data.comida === 'almuerzo') data.comidas[1] = receta
+	if (data.comida === 'merienda') data.comidas[2] = receta
+	if (data.comida === 'cena') data.comidas[3] = receta
+	setStorage(data)
 	location.href = `http://${location.host}/reemplazo.html`
 }
 
