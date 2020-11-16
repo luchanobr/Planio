@@ -13,7 +13,8 @@ function setReceta(receta: Receta) {
 			let ul = document.getElementById('ul-ingredientes')
 			let li = document.createElement('li')
 			li.classList.add('d-flex', 'justify-content-between', 'mx-1', 'my-1')
-			li.innerHTML = `  <span>${ingrediente.item}</span><span>${ingrediente.cant}</span>`
+			li.innerHTML = `<span>${ingrediente.item}</span>
+			<span> ${ingrediente.cant}<span aria-hidden="true">${ingrediente.abbr}</span><span class="sr-only">${ingrediente.medida}</span></span>`
 			ul.appendChild(li)
 		})
 	}
@@ -41,7 +42,7 @@ function setReceta(receta: Receta) {
 				<button class="btn-icon white" id="volver" aria-label="volver" >
 					<i class="fas fa-arrow-left"></i>
 				</button>
-				<button class="btn-icon white" aria-label="favorita" >
+				<button class="btn-icon white" aria-label="agregar a favoritos" >
 						<i class="far fa-heart" aria-hidden="true"></i>
 				</button>
 
@@ -53,7 +54,7 @@ function setReceta(receta: Receta) {
 			</div>
 			<div id="tabs" class="tabs">
 				<div class="expand-container">
-					<button class="expand" id="toggle"></button>
+					<button class="expand" id="toggle" aria-label="expandir pestañas"></button>
 				</div>
 				<div class="tab-container" role="tablist" aria-expanded="false" >
 					<button class="tab-button black" role="tab" id="tb1" aria-selected="true">Ingredientes</button>
@@ -173,6 +174,7 @@ function setReceta(receta: Receta) {
 			tabs.classList.remove('contraer')
 			tabList.setAttribute('aria-expanded', 'true')
 			video.classList.toggle('align-content-start')
+			button.setAttribute('aria-label', 'contraer pestañas')
 		}
 		tbIngredientes.classList.add('black')
 		tbPasos.classList.remove('black')
@@ -187,6 +189,7 @@ function setReceta(receta: Receta) {
 			tabs.classList.remove('contraer')
 			tabList.setAttribute('aria-expanded', 'true')
 			video.classList.toggle('align-content-start')
+			button.setAttribute('aria-label', 'contraer pestañas')
 		}
 		tbIngredientes.classList.remove('black')
 		tbPasos.classList.add('black')
@@ -225,11 +228,13 @@ function setReceta(receta: Receta) {
 			tabs.classList.remove('expanded')
 			tabList.setAttribute('aria-expanded', 'false')
 			video.classList.toggle('align-content-start')
+			button.setAttribute('aria-label', 'expander pestañas')
 		} else {
 			tabs.classList.add('expanded')
 			tabs.classList.remove('contraer')
 			tabList.setAttribute('aria-expanded', 'true')
 			video.classList.toggle('align-content-start')
+			button.setAttribute('aria-label', 'contraer pestañas')
 		}
 	}
 

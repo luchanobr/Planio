@@ -1,14 +1,91 @@
 import { getStorage, setStorage } from './store'
 import { volver } from './util'
+import dayjs from 'dayjs'
+
+const locale = {
+	name: 'es',
+	monthsShort: 'ene_feb_mar_abr_may_jun_jul_ago_sep_oct_nov_dic'.split('_'),
+	weekdays: 'domingo_lunes_martes_miércoles_jueves_viernes_sábado'.split('_'),
+	weekdaysShort: 'dom._lun._mar._mié._jue._vie._sáb.'.split('_'),
+	weekdaysMin: 'do_lu_ma_mi_ju_vi_sá'.split('_'),
+	months: 'Enero_Febrero_Marzo_Abril_Mayo_Junio_Julio_Agosto_Septiembre_Octubre_Noviembre_Diciembre'.split(
+		'_',
+	),
+	weekStart: 1,
+	formats: {
+		LT: 'H:mm',
+		LTS: 'H:mm:ss',
+		L: 'DD/MM/YYYY',
+		LL: 'D [de] MMMM [de] YYYY',
+		LLL: 'D [de] MMMM [de] YYYY H:mm',
+		LLLL: 'dddd, D [de] MMMM [de] YYYY H:mm',
+	},
+	relativeTime: {
+		future: 'en %s',
+		past: 'hace %s',
+		s: 'unos segundos',
+		m: 'un minuto',
+		mm: '%d minutos',
+		h: 'una hora',
+		hh: '%d horas',
+		d: 'un día',
+		dd: '%d días',
+		M: 'un mes',
+		MM: '%d meses',
+		y: 'un año',
+		yy: '%d años',
+	},
+	ordinal: (n: any) => `${n}º`,
+}
+
+dayjs.locale(locale, null, true)
 
 const planioStore = getStorage()
 const comidas = planioStore.comidas
 
+const hoy = dayjs().locale('es')
+let fechaContador = dayjs().locale('es')
+const h1 = document.querySelector('h1')
+h1.textContent = `Hoy,  ${hoy.date()} de ${hoy.format('MMMM')}`
+
+const fechas = document.getElementById('fechas')
+
+function setFechas(now = hoy) {
+	fechas.innerHTML = ''
+	let semana = new Array(7)
+	semana.fill(0)
+	semana[now.day()] = now.date()
+	semana.map((dia, index) => {
+		let span = document.createElement('td')
+		span.classList.add('min-w')
+		span.textContent = `${now.subtract(now.day() - index, 'd').date()}`
+		if (now.date(dia).format('DD/MM/YYYY') === hoy.format('DD/MM/YYYY'))
+			span.classList.add('brand')
+		fechas.appendChild(span)
+	})
+}
+
+setFechas()
 function tipoComida(index: number): string {
 	if (index === 0) return 'desayuno'
 	else if (index === 1) return 'almuerzo'
 	else if (index === 2) return 'merienda'
 	else return 'cena'
+}
+
+const menos = document.getElementById('menos')
+const mas = document.getElementById('mas')
+
+menos.addEventListener('click', restarSemana)
+mas.addEventListener('click', sumarSemana)
+
+function restarSemana() {
+	fechaContador = fechaContador.subtract(7, 'd')
+	setFechas(fechaContador)
+}
+function sumarSemana() {
+	fechaContador = fechaContador.add(7, 'd')
+	setFechas(fechaContador)
 }
 
 function setComidas() {
@@ -25,25 +102,25 @@ function setComidas() {
 		url(${comida.img})`
 		card.style.backgroundSize = 'cover'
 		card.innerHTML = `<div class="d-flex justify-content-between mt-05 w100">
-						<h3 class="text-light white ml-1 mt-05 capitalize">${tipoComida(index)}</h3>
+						<h2 class="text-light white ml-1 mt-05 capitalize">${tipoComida(index)}</h2>
 						<button class="btn-icon white mr-05">
-							<i class="far fa-heart"></i>
+							<i class="far fa-heart" aria-label="agregar a favoritos"></i>
 						</button>
 					</div>
-					<h4 class="white ml-1 titulo-receta w66">
+					<h3 class="white ml-1 titulo-receta w66">
 						${comida.titulo}
-					</h4>
+					</h3>
 					<div class="d-flex justify-content-between align-self-end w100 mb-1">
 						<div class="ml-1">
 							<span class="white mr-05">
 								<i class="far fa-clock fa-sm"></i> ${comida.tiempo}
 							</span>
 							<span class="white">
-								<i class="fas fa-dollar-sign fa-sm"></i> ${comida.costo}
+								<i class="fas fa-dollar-sign fa-sm" aria-label="pesos"></i> ${comida.costo}
 							</span>
 						</div>
 						<button class="btn-card mr-05" id="${tipoComida(index)}">
-							reemplazar <i class="fas fa-sync-alt"></i>
+							Reemplazar <i class="fas fa-sync-alt"></i>
 						</button>
 					</div>`
 		comidasContainer.appendChild(card)

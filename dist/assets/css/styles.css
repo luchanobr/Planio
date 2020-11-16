@@ -849,6 +849,7 @@ a[href]:focus {
 
 input[type='number'] {
 	appearance: none;
+	-moz-appearance: textfield;
 	border: 0;
 	color: var(--black);
 	font-size: 1rem;
@@ -872,4 +873,24 @@ input[type='number'] {
 button:disabled {
 	background-color: var(--Mediumgrey) !important;
 	color: white !important;
+}
+.min-w {
+	min-width: 13px;
+	text-align: center;
+}
+
+abbr {
+	appearance: none;
+	text-decoration: none;
+}
+
+th {
+	font-weight: 500;
+}
+
+td {
+	font-weight: 300;
+}
+table {
+	margin: 0.5rem 0.25rem;
 }

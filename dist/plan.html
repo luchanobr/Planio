@@ -23,24 +23,61 @@
 
 		<main>
 			<div class="card d-flex w90 mx-auto black flex-wrap text-small">
-				<div class="w100 d-flex justify-content-spaceEvenly my-05">
-					<span>L</span>
-					<span>M</span>
-					<span>M</span>
-					<span>J</span>
-					<span>V</span>
-					<span>S</span>
-					<span>D</span>
-				</div>
-				<div class="w100 d-flex justify-content-spaceEvenly text-fechas my-05">
-					<span>11</span>
-					<span class="brand">12</span>
-					<span>13</span>
-					<span>14</span>
-					<span>15</span>
-					<span>16</span>
-					<span>17</span>
-				</div>
+				<button
+					class="btn-icon black"
+					aria-label="retroceder una semana"
+					id="menos"
+				>
+					<i class="fas fa-angle-left" aria-hidden="true"></i>
+				</button>
+				<table class="flex-grow">
+					<caption class="sr-only">
+						Calendario semanal
+					</caption>
+					<thead class="w100">
+						<tr class="text-center">
+							<th scope="col">
+								<span aria-hidden="true"> D</span
+								><span class="sr-only">Domingo</span>
+							</th>
+							<th scope="col">
+								<span aria-hidden="true"> L</span
+								><span class="sr-only">lunes</span>
+							</th>
+							<th scope="col">
+								<span aria-hidden="true"> M</span
+								><span class="sr-only">Martes</span>
+							</th>
+							<th scope="col">
+								<span aria-hidden="true"> M</span
+								><span class="sr-only">Miercoles</span>
+							</th>
+							<th scope="col">
+								<span aria-hidden="true"> J</span
+								><span class="sr-only">Jueves</span>
+							</th>
+							<th scope="col">
+								<span aria-hidden="true"> V</span
+								><span class="sr-only">Viernes</span>
+							</th>
+							<th scope="col">
+								<span aria-hidden="true"> S</span
+								><span class="sr-only">Sabado</span>
+							</th>
+						</tr>
+					</thead>
+					<tbody class="w100">
+						<tr id="fechas" class="text-center"></tr>
+					</tbody>
+				</table>
+
+				<button
+					class="btn-icon black"
+					aria-label="retroceder una semana"
+					id="mas"
+				>
+					<i class="fas fa-angle-right" aria-hidden="true"></i>
+				</button>
 			</div>
 
 			<h1 class="ml-1 mt-1 titulo">Hoy, 12 de Octubre</h1>
