@@ -37,10 +37,15 @@ function setReceta(receta: Receta) {
 			rgba(0, 0, 0, 0.3)
 		),
 		url(${receta.img}); background-size: cover">
-				<div class="w100">
-					<button class="btn-icon white" id="volver" >
-						<i class="fas fa-arrow-left"></i>
-					</button>
+				<div class="w100 d-flex justify-content-between flex-wrap align-self-start">
+				<button class="btn-icon white" id="volver" aria-label="volver" >
+					<i class="fas fa-arrow-left"></i>
+				</button>
+				<button class="btn-icon white" aria-label="favorita" >
+						<i class="far fa-heart" aria-hidden="true"></i>
+				</button>
+
+
 				</div>
 				<div class="w100 " >
 					<h1 class="white ml-2 h1">${receta.titulo}</h1>
@@ -55,12 +60,11 @@ function setReceta(receta: Receta) {
 					<button class="tab-button" role="tab" id="tb2" aria-selected="false"  >Receta</button>
 				</div>
 				<div class="brand w100 d-flex justify-content-spaceEvenly mt-1">
-					<select aria-label="porciones" id="porciones" class="select">
-						<option value="1">1 porción</option>
-						<option value="2">2 porciones</option>
-						<option value="3">3 porciones</option>
-						<option value="4">4 porciones</option>
-					</select>
+					 <div class="d-flex justify-content-center">
+						<button class=" btn-math" aria-label="menos" id="menos" disabled ><i class="fas fa-minus fa-sm" aria-hidden="true" ></i></button>
+						<input type=number id="porciones" min="1" max="4" readonly="true" value="1" aria-label="porciones">
+						<button class=" btn-math" aria-label="mas" id="mas" ><i class="fas fa-plus fa-sm" aria-hidden="true"></i></button>
+					 </div>
 					<span class="brand mr-05">
 						<i class="far fa-clock fa-sm"></i> ${receta.tiempo}
 					</span>
@@ -122,18 +126,40 @@ function setReceta(receta: Receta) {
 
             </div>`
 
-	let select = document.getElementById('porciones') as HTMLSelectElement
+	let input = document.getElementById('porciones') as HTMLInputElement
 	const button = document.getElementById('toggle')
 	const tabs = document.getElementById('tabs')
 	let ingredientes = document.getElementById('ingredientes')
 	let pasos = document.getElementById('pasos')
 	const tabList = document.querySelector('[role="tablist"]')
 	const video = document.getElementById('video')
+	const menos = document.getElementById('menos')
+	const mas = document.getElementById('mas')
+
+	menos.addEventListener('click', restarPorciones)
+	mas.addEventListener('click', sumarPorciones)
+
+	function sumarPorciones() {
+		if (input.value == '4') null
+		else {
+			input.value = (parseInt(input.value) + 1).toString()
+			setPorciones()
+			menos.removeAttribute('disabled')
+		}
+	}
+	function restarPorciones() {
+		if (input.value == '1') null
+		else {
+			input.value = (parseInt(input.value) - 1).toString()
+			setPorciones()
+			input.value == '1' ? menos.setAttribute('disabled', 'true') : null
+		}
+	}
 
 	setIngredientes()
 	setPasos()
-	let touchStarY = 0
 
+	let touchStarY = 0
 	let tbIngredientes = document.getElementById('tb1')
 	let tbPasos = document.getElementById('tb2')
 
@@ -153,6 +179,7 @@ function setReceta(receta: Receta) {
 		ingredientes.classList.remove('display-none')
 		pasos.classList.add('display-none')
 	}
+
 	function tabPasos() {
 		let isExpanded = tabs.classList.contains('expanded')
 		if (!isExpanded) {
@@ -168,7 +195,7 @@ function setReceta(receta: Receta) {
 	}
 
 	const setPorciones = () => {
-		porciones = parseInt(select.value)
+		porciones = parseInt(input.value)
 		document.getElementById('kcal').innerHTML = (receta.datos.kcal * porciones)
 			.toFixed(0)
 			.toString()
@@ -186,7 +213,6 @@ function setReceta(receta: Receta) {
 			.toFixed(1)
 			.toString()
 	}
-	select.addEventListener('change', setPorciones)
 
 	button.addEventListener('click', swipeTabs)
 	button.addEventListener('touchstart', setTouchStart)

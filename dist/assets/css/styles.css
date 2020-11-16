@@ -202,6 +202,9 @@ fieldset {
 .align-self-end {
 	align-self: flex-end;
 }
+.align-self-start {
+	align-self: flex-start;
+}
 
 .justify-selt-center {
 	justify-self: center;
@@ -842,4 +845,31 @@ a[href]:focus {
 }
 .capitalize {
 	text-transform: capitalize;
+}
+
+input[type='number'] {
+	appearance: none;
+	border: 0;
+	color: var(--black);
+	font-size: 1rem;
+	font-weight: 600;
+	width: 18px;
+	text-align: center;
+}
+
+.btn-math {
+	background-color: var(--brand);
+	color: white;
+	width: 25px;
+	height: 25px;
+	padding: 0.25rem;
+	border-radius: 0.25rem;
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+	border: 0;
+}
+
+button:disabled {
+	background-color: var(--Mediumgrey) !important;
+	color: white !important;
 }
