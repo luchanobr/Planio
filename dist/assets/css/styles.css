@@ -87,6 +87,10 @@ footer {
 	background: white;
 }
 
+*:focus {
+	border: 1.5px solid var(--brand) !important;
+}
+
 .d-flex {
 	display: flex;
 }

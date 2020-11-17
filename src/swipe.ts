@@ -29,6 +29,8 @@ function setImagenes() {
 			card.style.setProperty('transform', `scale(${setScale(index)})`)
 			const hidden = document.getElementById(`${index}3`)
 			hidden.setAttribute('aria-hidden', 'true')
+			const cardBody = document.getElementById(item.titulo)
+			cardBody.setAttribute('tabindex', '-1')
 		}
 		const tituloCard = document.getElementById(item.titulo)
 		preferencias.length !== 4 ? tituloCard.focus() : null

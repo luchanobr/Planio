@@ -122,7 +122,7 @@ function setReceta(receta: Receta) {
 
 					</ul>
 				</div>
-				<div id="pasos" class="tab-content w100 display-none" role="tabpanel" aria-labelledby="tb1" tabindex="0">
+				<div id="pasos" class="tab-content w100 display-none" role="tabpanel" aria-labelledby="tb2" tabindex="0">
                     <ol class="w80" id="ol-pasos">
 					</ol>
                 </div>
@@ -174,6 +174,7 @@ function setReceta(receta: Receta) {
 		tbIngredientes.classList.add('black')
 		tbPasos.classList.remove('black')
 		ingredientes.classList.remove('display-none')
+		ingredientes.focus()
 		pasos.classList.add('display-none')
 	}
 
@@ -195,6 +196,7 @@ function setReceta(receta: Receta) {
 		tbPasos.classList.add('black')
 		ingredientes.classList.add('display-none')
 		pasos.classList.remove('display-none')
+		pasos.focus()
 	}
 
 	const setPorciones = () => {
@@ -275,13 +277,11 @@ function setReceta(receta: Receta) {
 			(e.key === 'ArrowRight' || e.key === 'ArrowLeft') &&
 			button.id === 'tb1'
 		) {
-			console.log('arrow derecha')
 			tbPasos.focus()
 		} else if (
 			(e.key === 'ArrowRight' || e.key === 'ArrowLeft') &&
 			button.id === 'tb2'
 		) {
-			console.log('arrow izq')
 			tbIngredientes.focus()
 		}
 	}
