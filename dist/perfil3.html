@@ -9,18 +9,24 @@
 		<link rel="stylesheet" href="./assets/css/all.css" />
 	</head>
 	<body>
-		<header class="d-flex align-content-center">
-			<button
-				class="btn-icon"
+		<header class="d-flex justify-content-center align-items-center">
+			<a
+				class="btn-icon d-flex justify-content-center align-items-center"
 				aria-label="volver a la pagina anterior"
 				id="volver"
 			>
-				<i class="fas fa-arrow-left"></i>
-			</button>
+				<i class="fas fa-arrow-left" aria-hidden="true"></i>
+			</a>
 
 			<p class="perfil flex-grow text-center">Creación del perfil</p>
+			<a
+				href="/accesibilidad.html"
+				class="btn-icon black d-flex justify-content-center align-items-center"
+				aria-label="declaracion de conformidad"
+			>
+				<i class="fas fa-universal-access" aria-hidden="true"></i>
+			</a>
 		</header>
-
 		<main>
 			<h1 class="text-center">Preferencias</h1>
 			<p class="text-center px-1">
@@ -38,6 +44,7 @@
 				>
 					<i class="fas fa-times fa-lg"></i>
 				</button>
+				<button class="btn-link" id="continuar">Terminar</button>
 				<button
 					class="btn-icon white bg-brand px-1"
 					id="aceptar"
@@ -46,7 +53,8 @@
 					<i class="fas fa-check fa-lg"></i>
 				</button>
 			</div>
-			<button class="btn mt-1" id="continuar">Continuar</button>
+
+			<p class="text-light mt-1 text-center w100">Paso 3 de 3</p>
 		</main>
 	</body>
 </html>

@@ -9,16 +9,23 @@
 		<link rel="stylesheet" href="./assets/css/all.css" />
 	</head>
 	<body>
-		<header class="d-flex align-content-center">
-			<button
-				class="btn-icon"
+		<header class="d-flex justify-content-center align-items-center">
+			<a
+				class="btn-icon d-flex justify-content-center align-items-center"
 				aria-label="volver a la pagina anterior"
 				id="volver"
 			>
 				<i class="fas fa-arrow-left" aria-hidden="true"></i>
-			</button>
+			</a>
 
 			<p class="perfil flex-grow text-center">Creación del perfil</p>
+			<a
+				href="/accesibilidad.html"
+				class="btn-icon black d-flex justify-content-center align-items-center"
+				aria-label="declaracion de conformidad"
+			>
+				<i class="fas fa-universal-access" aria-hidden="true"></i>
+			</a>
 		</header>
 		<main>
 			<h1 class="text-center">Tipo de alimentación</h1>
@@ -66,6 +73,7 @@
 				</fieldset>
 				<input type="submit" value="Comenzar" class="btn" id="perfil2Button" />
 			</form>
+			<p class="text-light mt-1 text-center w100">Paso 2 de 3</p>
 		</main>
 	</body>
 </html>

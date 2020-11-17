@@ -44,6 +44,7 @@ function setOpciones() {
 		)
 		miniReceta.innerHTML = `
 					<div
+						tabindex="0"
                         class="mini-receta d-flex w100 justify-content-end text-center flex-column flex-wrap" style="
                         background: linear-gradient(
 			rgba(0, 0, 0, 0),
@@ -59,7 +60,7 @@ function setOpciones() {
 								<i class="far fa-clock fa-sm"></i> ${receta.tiempo}
 							</span>
 							<span class="white w50 ml-05">
-								<i class="fas fa-dollar-sign fa-sm"></i> ${receta.costo}
+								<i class="fas fa-dollar-sign fa-sm" aria-label="pesos"></i> ${receta.costo}
 							</span>
 						</div>
 					</div>

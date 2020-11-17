@@ -976,19 +976,19 @@ export const desayunos: Receta[] = [
 			},
 			{
 				item: 'Harina de almendra',
-				cant: '50 g',
+				cant: '50',
 				medida: 'gramos',
 				abbr: 'g',
 			},
 			{
 				item: 'Miel',
-				cant: '50 g',
+				cant: '50',
 				medida: 'gramos',
 				abbr: 'g',
 			},
 			{
 				item: 'Sal',
-				cant: '3 g',
+				cant: '3',
 				medida: 'gramos',
 				abbr: 'g',
 			},

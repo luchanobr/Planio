@@ -1,4 +1,5 @@
 const path = require('path')
+const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = {
 	entry: {
@@ -11,12 +12,17 @@ module.exports = {
 		receta: './src/receta.ts',
 		reemplazo: './src/reemplazo.ts',
 	},
-	devtool: 'inline-source-map',
+	devtool: 'eval-cheap-module-source-map',
 	module: {
 		rules: [
 			{
 				test: /\.tsx?$/,
-				use: 'ts-loader',
+				use: {
+					loader: 'ts-loader',
+					options: {
+						transpileOnly: true,
+					},
+				},
 				exclude: /node_modules/,
 			},
 			{
@@ -32,9 +38,15 @@ module.exports = {
 	resolve: {
 		extensions: ['.tsx', '.ts', '.js'],
 	},
+
 	output: {
 		filename: '[name].bundle.js',
 		path: path.resolve(__dirname, 'dist'),
+		pathinfo: false,
+	},
+	optimization: {
+		minimize: true,
+		minimizer: [new TerserPlugin()],
 	},
 	devServer: {
 		contentBase: './dist',

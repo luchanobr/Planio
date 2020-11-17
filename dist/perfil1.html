@@ -9,16 +9,25 @@
 		<link rel="stylesheet" href="./assets/css/all.css" />
 	</head>
 	<body>
-		<header class="d-flex align-content-center">
-			<button
-				class="btn-icon black"
+		<header
+			class="d-flex align-items-center justify-content-spaceEvenly flex-grow"
+		>
+			<a
+				class="btn-icon black d-flex justify-content-center align-items-center"
 				aria-label="volver a la pagina anterior"
 				id="volver"
 			>
 				<i class="fas fa-times" aria-hidden="true"></i>
-			</button>
+			</a>
 
 			<p class="perfil flex-grow text-center">Creación del perfil</p>
+			<a
+				href="/accesibilidad.html"
+				class="btn-icon black d-flex justify-content-center align-items-center"
+				aria-label="declaracion de conformidad"
+			>
+				<i class="fas fa-universal-access" aria-hidden="true"></i>
+			</a>
 		</header>
 		<main>
 			<h1 class="text-center">Presupuesto semanal</h1>
@@ -77,6 +86,7 @@
 
 				<input type="submit" value="Comenzar" class="btn" id="perfil1Button" />
 			</form>
+			<p class="text-light mt-1 text-center w100">Paso 1 de 3</p>
 		</main>
 	</body>
 </html>

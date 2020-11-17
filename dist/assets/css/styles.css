@@ -115,6 +115,9 @@ footer {
 	align-content: center;
 }
 
+.align-items-center {
+	align-items: center;
+}
 .align-content-start {
 	align-content: flex-start;
 }
@@ -232,9 +235,8 @@ fieldset {
 .perfil {
 	font-size: 1rem;
 	font-weight: 400;
-	margin-left: -45px;
-	margin-top: 0.7rem;
-	margin-bottom: 0.7rem;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
 }
 .input-container {
 	width: 30%;
@@ -827,9 +829,20 @@ a[href]:focus {
 .btn-float {
 	position: fixed !important;
 	bottom: 45px !important;
+	padding: 1rem 1rem;
 	z-index: 1000 !important;
-	margin-left: 10%;
+	font-size: 1rem;
+	font-weight: 500;
+	width: 90%;
+	margin-left: 5%;
 	margin-right: auto;
+	border-radius: 0.5rem;
+	background-color: var(--brand);
+}
+
+.btn-float:focus {
+	border: 3px solid var(--blue) !important;
+	opacity: 0.8;
 }
 
 .hr {
@@ -893,4 +906,16 @@ td {
 }
 table {
 	margin: 0.5rem 0.25rem;
+}
+
+.btn-link {
+	border: 0;
+	font-size: 0.8rem;
+	font-weight: 200;
+	text-decoration: underline;
+	color: var(--black);
+	background: transparent;
+}
+.mr-45px {
+	margin-right: 45px;
 }

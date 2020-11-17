@@ -14,7 +14,9 @@ function setReceta(receta: Receta) {
 			let li = document.createElement('li')
 			li.classList.add('d-flex', 'justify-content-between', 'mx-1', 'my-1')
 			li.innerHTML = `<span>${ingrediente.item}</span>
-			<span> ${ingrediente.cant}<span aria-hidden="true">${ingrediente.abbr}</span><span class="sr-only">${ingrediente.medida}</span></span>`
+			<span> ${ingrediente.cant + ' '} <span aria-hidden="true">${
+				ingrediente.abbr
+			}</span><span class="sr-only">${ingrediente.medida}</span></span>`
 			ul.appendChild(li)
 		})
 	}
@@ -57,20 +59,20 @@ function setReceta(receta: Receta) {
 					<button class="expand" id="toggle" aria-label="expandir pestañas"></button>
 				</div>
 				<div class="tab-container" role="tablist" aria-expanded="false" >
-					<button class="tab-button black" role="tab" id="tb1" aria-selected="true">Ingredientes</button>
-					<button class="tab-button" role="tab" id="tb2" aria-selected="false"  >Receta</button>
+					<button class="tab-button black" role="tab" id="tb1" aria-selected="true" aria-expanded="false">Ingredientes</button>
+					<button class="tab-button" role="tab" id="tb2" aria-selected="false" aria-expanded="false" >Receta</button>
 				</div>
 				<div class="brand w100 d-flex justify-content-spaceEvenly mt-1">
 					 <div class="d-flex justify-content-center">
-						<button class=" btn-math" aria-label="menos" id="menos" disabled ><i class="fas fa-minus fa-sm" aria-hidden="true" ></i></button>
-						<input type=number id="porciones" min="1" max="4" readonly="true" value="1" aria-label="porciones">
-						<button class=" btn-math" aria-label="mas" id="mas" ><i class="fas fa-plus fa-sm" aria-hidden="true"></i></button>
+						<button class=" btn-math" aria-label="quitar una porcion" id="menos" disabled ><i class="fas fa-minus fa-sm" aria-hidden="true" ></i></button>
+						<input type="number" id="porciones" min="1" max="4"  value="1" aria-label="porciones">
+						<button class=" btn-math" aria-label="agregar una porcion" id="mas" ><i class="fas fa-plus fa-sm" aria-hidden="true"></i></button>
 					 </div>
 					<span class="brand mr-05">
 						<i class="far fa-clock fa-sm"></i> ${receta.tiempo}
 					</span>
 					<span class="ml-05">
-						<i class="fas fa-dollar-sign fa-sm"></i> ${receta.costo}
+						<i class="fas fa-dollar-sign fa-sm" aria-label="pesos"></i> ${receta.costo}
 					</span>
 				</div>
 
@@ -88,7 +90,7 @@ function setReceta(receta: Receta) {
 						>
 							<span>Calorías</span><span id="kcal">${
 								receta.datos.kcal * porciones
-							}</span><span>kcal </span>
+							}</span><span aria-hidden="true">kcal</span> <span class="sr-only">kilocalorias</span>
 						</div>
 						<div class="separador-datos"></div>
 						<div
@@ -110,7 +112,7 @@ function setReceta(receta: Receta) {
 						<div
 							class="d-flex flex-column justify-content-center text-center small"
 						>
-							<span aria-label="Carbohidratos">Carbs.</span><span id="carbs">${
+							<span aria-hidden="true">Carbs.</span><span class="sr-only">Carbohidratos</span> <span id="carbs">${
 								receta.datos.carbs * porciones
 							}</span
 							><span>Gramos </span>
@@ -168,29 +170,27 @@ function setReceta(receta: Receta) {
 	tbPasos.addEventListener('click', tabPasos)
 
 	function tabIngredientes() {
-		let isExpanded = tabs.classList.contains('expanded')
-		if (!isExpanded) {
-			tabs.classList.add('expanded')
-			tabs.classList.remove('contraer')
-			tabList.setAttribute('aria-expanded', 'true')
-			video.classList.toggle('align-content-start')
-			button.setAttribute('aria-label', 'contraer pestañas')
-		}
+		expandir()
 		tbIngredientes.classList.add('black')
 		tbPasos.classList.remove('black')
 		ingredientes.classList.remove('display-none')
 		pasos.classList.add('display-none')
 	}
 
-	function tabPasos() {
+	function expandir() {
 		let isExpanded = tabs.classList.contains('expanded')
 		if (!isExpanded) {
 			tabs.classList.add('expanded')
 			tabs.classList.remove('contraer')
-			tabList.setAttribute('aria-expanded', 'true')
+			tbIngredientes.setAttribute('aria-expanded', 'true')
+			tbPasos.setAttribute('aria-expanded', 'true')
 			video.classList.toggle('align-content-start')
 			button.setAttribute('aria-label', 'contraer pestañas')
 		}
+	}
+
+	function tabPasos() {
+		expandir()
 		tbIngredientes.classList.remove('black')
 		tbPasos.classList.add('black')
 		ingredientes.classList.add('display-none')
@@ -221,18 +221,23 @@ function setReceta(receta: Receta) {
 	button.addEventListener('touchstart', setTouchStart)
 	button.addEventListener('touchend', touchEnd)
 
+	ingredientes.addEventListener('focus', expandir)
+	pasos.addEventListener('focus', expandir)
+
 	function swipeTabs() {
 		let isExpanded = tabs.classList.contains('expanded')
 		if (isExpanded) {
 			tabs.classList.add('contraer')
 			tabs.classList.remove('expanded')
-			tabList.setAttribute('aria-expanded', 'false')
+			tbIngredientes.setAttribute('aria-expanded', 'false')
+			tbPasos.setAttribute('aria-expanded', 'false')
 			video.classList.toggle('align-content-start')
 			button.setAttribute('aria-label', 'expander pestañas')
 		} else {
 			tabs.classList.add('expanded')
 			tabs.classList.remove('contraer')
-			tabList.setAttribute('aria-expanded', 'true')
+			tbIngredientes.setAttribute('aria-expanded', 'true')
+			tbPasos.setAttribute('aria-expanded', 'true')
 			video.classList.toggle('align-content-start')
 			button.setAttribute('aria-label', 'contraer pestañas')
 		}
@@ -250,12 +255,14 @@ function setReceta(receta: Receta) {
 		} else if (result > 0) {
 			tabs.classList.add('expanded')
 			tabs.classList.remove('contraer')
-			tabList.setAttribute('aria-expanded', 'false')
+			tbIngredientes.setAttribute('aria-expanded', 'true')
+			tbPasos.setAttribute('aria-expanded', 'true')
 			video.classList.toggle('align-content-start')
 		} else {
 			tabs.classList.add('contraer')
 			tabs.classList.remove('expanded')
-			tabList.setAttribute('aria-expanded', 'true')
+			tbIngredientes.setAttribute('aria-expanded', 'false')
+			tbPasos.setAttribute('aria-expanded', 'false')
 			video.classList.toggle('align-content-start')
 		}
 	}
