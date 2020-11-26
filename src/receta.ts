@@ -2,19 +2,22 @@ import { Receta, recetas } from './db'
 import { getStorage, PlanioStore, setStorage } from './store'
 import { volver } from './util'
 
-let receta: Receta = getStorage().receta || recetas[0]
+const receta: Receta = getStorage().receta || recetas[0]
 
 function setReceta(receta: Receta) {
 	const main = document.getElementById('receta')
 	let porciones = 1
 
-	function setIngredientes() {
+	function setIngredientes(porciones = 1) {
+		const ul = document.getElementById('ul-ingredientes')
+		ul.innerHTML = ''
 		receta.ingredientes.map((ingrediente) => {
-			let ul = document.getElementById('ul-ingredientes')
-			let li = document.createElement('li')
+			const li = document.createElement('li')
 			li.classList.add('d-flex', 'justify-content-between', 'mx-1', 'my-1')
 			li.innerHTML = `<span>${ingrediente.item}</span>
-			<span> ${ingrediente.cant + ' '} <span aria-hidden="true">${
+			<span> ${
+				parseFloat(ingrediente.cant) * porciones + ' '
+			} <span aria-hidden="true">${
 				ingrediente.abbr
 			}</span><span class="sr-only">${ingrediente.medida}</span></span>`
 			ul.appendChild(li)
@@ -22,8 +25,8 @@ function setReceta(receta: Receta) {
 	}
 	function setPasos() {
 		receta.pasos.map((paso, index) => {
-			let ol = document.getElementById('ol-pasos')
-			let li = document.createElement('li')
+			const ol = document.getElementById('ol-pasos')
+			const li = document.createElement('li')
 			li.innerHTML = `<p class="text-light">
 								<span class="h5">Paso ${index + 1}</span>
 								<br />
@@ -42,38 +45,34 @@ function setReceta(receta: Receta) {
 		url(${receta.img}); background-size: cover">
 				<div class="w100 d-flex justify-content-between flex-wrap align-self-start">
 				<button class="btn-icon white" id="volver" aria-label="volver" >
-					<i class="fas fa-arrow-left"></i>
+					<i class="fas fa-arrow-left fa-lg"></i>
 				</button>
 				<button class="btn-icon white" aria-label="agregar a favoritos" >
-						<i class="far fa-heart" aria-hidden="true"></i>
+						<i class="far fa-heart fa-lg" aria-hidden="true"></i>
 				</button>
 
 
 				</div>
-				<div class="w100 " >
-					<h1 class="white ml-2 h1">${receta.titulo}</h1>
+				<div class="w100 d-flex justify-content-center" >
+					<h1 class="white h1 w80">${receta.titulo}</h1>
+				</div>
+				<div class="d-flex justify-content-center">
+					<p class="mr-05 white p-receta">
+						<i class="far fa-clock"></i> ${receta.tiempo} min
+					</p>
+					<p class="ml-05 white p-receta">
+						<i class="fas fa-dollar-sign" aria-label="pesos"></i> ${receta.costo}
+					</p>
 				</div>
 			</div>
-			<div id="tabs" class="tabs">
+			<div id="tabs" class="tabs" aria-expanded="false">
 				<div class="expand-container">
 					<button class="expand" id="toggle" aria-label="expandir pestañas"></button>
 				</div>
-				<div class="tab-container" role="tablist" aria-expanded="false" >
-					<button class="tab-button black" role="tab" id="tb1" aria-selected="true" aria-expanded="false">Ingredientes</button>
-					<button class="tab-button" role="tab" id="tb2" aria-selected="false" aria-expanded="false" >Receta</button>
-				</div>
-				<div class="brand w100 d-flex justify-content-spaceEvenly mt-1">
-					 <div class="d-flex justify-content-center">
-						<button class=" btn-math" aria-label="quitar una porcion" id="menos" disabled ><i class="fas fa-minus fa-sm" aria-hidden="true" ></i></button>
-						<input type="number" id="porciones" min="1" max="4"  value="1" aria-label="porciones">
-						<button class=" btn-math" aria-label="agregar una porcion" id="mas" ><i class="fas fa-plus fa-sm" aria-hidden="true"></i></button>
-					 </div>
-					<span class="brand mr-05">
-						<i class="far fa-clock fa-sm"></i> ${receta.tiempo}
-					</span>
-					<span class="ml-05">
-						<i class="fas fa-dollar-sign fa-sm" aria-label="pesos"></i> ${receta.costo}
-					</span>
+				<div class="display-none" id="tabs-container">
+				<div class="tab-container" role="tablist" aria-label="Pestañas informacion de la receta"  >
+					<button class="tab-button text-underline" role="tab" id="tb1" aria-selected="true" tabindex="0" >Ingredientes</button>
+					<button class="tab-button" role="tab" id="tb2" aria-selected="false" tabindex="-1" >Receta</button>
 				</div>
 
 				<div
@@ -84,6 +83,19 @@ function setReceta(receta: Receta) {
 					tabindex="0"
 
 				>
+
+				<div class=" w100 d-flex justify-content-center mt-1">
+					 <div class="d-flex w80 justify-content-center">
+
+						<select type="number" id="porciones" name="porciones" class="select" aria-label="Cantidad de porciones" value="1" aria-label="porciones">
+						  <option value="1">1 porción</option>
+						  <option value="2">2 porciones</option>
+						  <option value="3">3 porciones</option>
+						  <option value="4">4 porciones</option>
+						</select>
+					 </div>
+
+				</div>
 					<div class="d-flex justify-content-spaceEvenly mt-1 w100">
 						<div
 							class="d-flex flex-column justify-content-center text-center small"
@@ -118,7 +130,7 @@ function setReceta(receta: Receta) {
 							><span>Gramos </span>
 						</div>
 					</div>
-                    <ul class="w80 text-light" id="ul-ingredientes">
+                    <ul class="w80 text-light" id="ul-ingredientes" >
 
 					</ul>
 				</div>
@@ -126,60 +138,45 @@ function setReceta(receta: Receta) {
                     <ol class="w80" id="ol-pasos">
 					</ol>
                 </div>
+				</div>
+			</div>
+			<button class="btn mt-1 w80 btn-float" id="reemplazar">
+					Elegir comida
+			</button>
+				`
 
-            </div>`
-
-	let input = document.getElementById('porciones') as HTMLInputElement
+	const select = document.getElementById('porciones') as HTMLInputElement
 	const button = document.getElementById('toggle')
 	const tabs = document.getElementById('tabs')
-	let ingredientes = document.getElementById('ingredientes')
-	let pasos = document.getElementById('pasos')
+	const ingredientes = document.getElementById('ingredientes')
+	const pasos = document.getElementById('pasos')
 	const tabList = document.querySelector('[role="tablist"]')
 	const video = document.getElementById('video')
-	const menos = document.getElementById('menos')
-	const mas = document.getElementById('mas')
+	const tabsContainer = document.getElementById('tabs-container')
 
-	menos.addEventListener('click', restarPorciones)
-	mas.addEventListener('click', sumarPorciones)
-
-	function sumarPorciones() {
-		if (input.value == '4') null
-		else {
-			input.value = (parseInt(input.value) + 1).toString()
-			setPorciones()
-			menos.removeAttribute('disabled')
-		}
-	}
-	function restarPorciones() {
-		if (input.value == '1') null
-		else {
-			input.value = (parseInt(input.value) - 1).toString()
-			setPorciones()
-			input.value == '1' ? menos.setAttribute('disabled', 'true') : null
-		}
-	}
-
-	setIngredientes()
 	setPasos()
+	setIngredientes()
 
 	let touchStarY = 0
-	let tbIngredientes = document.getElementById('tb1')
-	let tbPasos = document.getElementById('tb2')
+	const tbIngredientes = document.getElementById('tb1')
+	const tbPasos = document.getElementById('tb2')
 
 	tbIngredientes.addEventListener('click', tabIngredientes)
 	tbPasos.addEventListener('click', tabPasos)
 
 	function tabIngredientes() {
-		expandir()
-		tbIngredientes.classList.add('black')
-		tbPasos.classList.remove('black')
+		tbIngredientes.classList.add('text-underline')
+		tbPasos.classList.remove('text-underline')
+		tbIngredientes.setAttribute('tabindex', '0')
+		tbIngredientes.setAttribute('aria-selected', 'true')
+		tbPasos.setAttribute('aria-selected', 'false')
+		tbPasos.setAttribute('tabindex', '-1')
 		ingredientes.classList.remove('display-none')
-		ingredientes.focus()
 		pasos.classList.add('display-none')
 	}
 
 	function expandir() {
-		let isExpanded = tabs.classList.contains('expanded')
+		const isExpanded = tabs.classList.contains('expanded')
 		if (!isExpanded) {
 			tabs.classList.add('expanded')
 			tabs.classList.remove('contraer')
@@ -191,16 +188,19 @@ function setReceta(receta: Receta) {
 	}
 
 	function tabPasos() {
-		expandir()
-		tbIngredientes.classList.remove('black')
-		tbPasos.classList.add('black')
+		tbIngredientes.classList.remove('text-underline')
+		tbPasos.classList.add('text-underline')
+		tbIngredientes.setAttribute('tabindex', '-1')
+		tbPasos.setAttribute('tabindex', '0')
+		tbIngredientes.setAttribute('aria-selected', 'false')
+		tbPasos.setAttribute('aria-selected', 'true')
 		ingredientes.classList.add('display-none')
 		pasos.classList.remove('display-none')
-		pasos.focus()
 	}
 
 	const setPorciones = () => {
-		porciones = parseInt(input.value)
+		porciones = parseInt(select.value)
+		setIngredientes(porciones)
 		document.getElementById('kcal').innerHTML = (receta.datos.kcal * porciones)
 			.toFixed(0)
 			.toString()
@@ -219,27 +219,23 @@ function setReceta(receta: Receta) {
 			.toString()
 	}
 
+	select.addEventListener('change', setPorciones)
 	button.addEventListener('click', swipeTabs)
 	button.addEventListener('touchstart', setTouchStart)
 	button.addEventListener('touchend', touchEnd)
 
-	ingredientes.addEventListener('focus', expandir)
-	pasos.addEventListener('focus', expandir)
-
 	function swipeTabs() {
-		let isExpanded = tabs.classList.contains('expanded')
+		const isExpanded = tabs.classList.contains('expanded')
 		if (isExpanded) {
 			tabs.classList.add('contraer')
 			tabs.classList.remove('expanded')
-			tbIngredientes.setAttribute('aria-expanded', 'false')
-			tbPasos.setAttribute('aria-expanded', 'false')
+			tabsContainer.classList.add('display-none')
 			video.classList.toggle('align-content-start')
 			button.setAttribute('aria-label', 'expander pestañas')
 		} else {
 			tabs.classList.add('expanded')
 			tabs.classList.remove('contraer')
-			tbIngredientes.setAttribute('aria-expanded', 'true')
-			tbPasos.setAttribute('aria-expanded', 'true')
+			tabsContainer.classList.remove('display-none')
 			video.classList.toggle('align-content-start')
 			button.setAttribute('aria-label', 'contraer pestañas')
 		}
@@ -250,8 +246,8 @@ function setReceta(receta: Receta) {
 	}
 
 	function touchEnd(e: TouchEvent) {
-		let touchEnd = e.changedTouches[0].clientY
-		let result = touchStarY - touchEnd
+		const touchEnd = e.changedTouches[0].clientY
+		const result = touchStarY - touchEnd
 		if (Math.abs(result) <= 30) {
 			null
 		} else if (result > 0) {
@@ -272,7 +268,7 @@ function setReceta(receta: Receta) {
 	tabList.addEventListener('keydown', arrowsMove)
 
 	function arrowsMove(e: KeyboardEvent) {
-		let button = e.target as HTMLButtonElement
+		const button = e.target as HTMLButtonElement
 		if (
 			(e.key === 'ArrowRight' || e.key === 'ArrowLeft') &&
 			button.id === 'tb1'
@@ -292,8 +288,8 @@ setReceta(receta)
 const reemplazar = document.getElementById('reemplazar') as HTMLButtonElement
 
 function reemplazarReceta() {
-	let planioStore = getStorage()
-	let data: PlanioStore = { ...planioStore }
+	const planioStore = getStorage()
+	const data: PlanioStore = { ...planioStore }
 	if (data.comida === 'desayuno') data.comidas[0] = receta
 	if (data.comida === 'almuerzo') data.comidas[1] = receta
 	if (data.comida === 'merienda') data.comidas[2] = receta

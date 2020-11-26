@@ -51,18 +51,34 @@ h1.textContent = `Hoy,  ${hoy.date()} de ${hoy.format('MMMM')}`
 const fechas = document.getElementById('fechas')
 
 function setFechas(now = hoy) {
+	const tituloCalendario = document.getElementById('tabla-titulo')
+
 	fechas.innerHTML = ''
-	let semana = new Array(7)
+	const semana = new Array(7)
 	semana.fill(0)
 	semana[now.day()] = now.date()
-	semana.map((dia, index) => {
-		let span = document.createElement('td')
+	const Newsemana = semana.map((dia, index) => {
+		const span = document.createElement('td')
 		span.classList.add('min-w')
 		span.textContent = `${now.subtract(now.day() - index, 'd').date()}`
 		if (now.date(dia).format('DD/MM/YYYY') === hoy.format('DD/MM/YYYY'))
 			span.classList.add('brand')
 		fechas.appendChild(span)
+		return now.subtract(now.day() - index, 'd')
 	})
+	if (Newsemana[0].month() === Newsemana[6].month()) {
+		const titulo = `Semana del ${Newsemana[0].date()} al ${Newsemana[6].date()} de ${Newsemana[0].format(
+			'MMMM',
+		)} de ${Newsemana[0].year()} `
+		tituloCalendario.textContent = titulo
+	} else {
+		const titulo = `Semana del ${Newsemana[0].date()} de ${Newsemana[0].format(
+			'MMMM',
+		)} al ${Newsemana[6].date()} de ${Newsemana[6].format(
+			'MMMM',
+		)} de ${Newsemana[0].year()} `
+		tituloCalendario.textContent = titulo
+	}
 }
 
 setFechas()
@@ -89,12 +105,12 @@ function sumarSemana() {
 }
 
 function setComidas() {
-	let comidasContainer = document.getElementById('recetas-container')
+	const comidasContainer = document.getElementById('recetas-container')
 	comidas.map((comida, index) => {
-		let card = document.createElement('div')
+		const card = document.createElement('div')
 		card.classList.add('card-receta', 'w90', 'd-flex', 'flex-wrap')
 		card.style.background = `linear-gradient(
-			rgba(0, 0, 0, 0.1),
+			rgba(0, 0, 0, 0.2),
 			rgba(0, 0, 0, 0.5),
 			rgba(0, 0, 0, 0.75),
 			rgba(0, 0, 0, 0.97)
@@ -113,7 +129,7 @@ function setComidas() {
 					<div class="d-flex justify-content-between align-self-end w100 mb-1">
 						<div class="ml-1">
 							<span class="white mr-05">
-								<i class="far fa-clock fa-sm"></i> ${comida.tiempo}
+								<i class="far fa-clock fa-sm"></i> ${comida.tiempo} min
 							</span>
 							<span class="white">
 								<i class="fas fa-dollar-sign fa-sm" aria-label="pesos"></i> ${comida.costo}

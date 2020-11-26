@@ -5,8 +5,8 @@ import { volver } from './util'
 const planioStore = getStorage()
 
 function setTitulos() {
-	let h1 = document.querySelector('h1')
-	let p = document.querySelector('p')
+	const h1 = document.querySelector('h1')
+	const p = document.querySelector('p')
 	h1.textContent = `Opciones de ${planioStore.comida}`
 	p.textContent = `Reemplazar ${planioStore.comida}`
 }
@@ -14,10 +14,30 @@ function setTitulos() {
 setTitulos()
 
 function goToReceta(receta: Receta) {
-	let data: PlanioStore = { ...planioStore }
+	const data: PlanioStore = { ...planioStore }
 	data.receta = receta
 	setStorage(data)
 	location.href = `http://${location.host}/receta.html`
+}
+
+const Scategoria = document.getElementById('categoria') as HTMLSelectElement
+const Sorden = document.getElementById('orden') as HTMLSelectElement
+
+function ordenar(recetas: Receta[]): Receta[] {
+	const attr = Scategoria.value
+	const orden = Sorden.value
+	console.log({ attr }, { orden })
+	recetas = recetas.sort((a, b) => {
+		if (attr === 'tiempo') {
+			if (a.tiempo < b.tiempo) {
+				return -1
+			} else return 1
+		} else {
+			return a.costo - b.costo
+		}
+	})
+	orden === 'Desc' ? (recetas = recetas.reverse()) : null
+	return recetas
 }
 
 function setOpciones() {
@@ -27,12 +47,14 @@ function setOpciones() {
 		? (opcionesRecetas = recetas)
 		: (opcionesRecetas = desayunos)
 
-	let container = document.getElementById(
+	const container = document.getElementById(
 		'mini-recetas-container',
 	) as HTMLDivElement
+	container.innerHTML = ''
+	opcionesRecetas = ordenar(opcionesRecetas)
 
 	opcionesRecetas.map((receta) => {
-		let miniReceta = document.createElement('div')
+		const miniReceta = document.createElement('div')
 		miniReceta.id = receta.titulo
 		miniReceta.classList.add(
 			'w40',
@@ -47,9 +69,9 @@ function setOpciones() {
 						tabindex="0"
                         class="mini-receta d-flex w100 justify-content-end text-center flex-column flex-wrap" style="
                         background: linear-gradient(
-			rgba(0, 0, 0, 0),
-			rgba(0, 0, 0, 0.3),
-			rgba(0, 0, 0, 0.6),
+			rgba(0, 0, 0, 0.2),
+			rgba(0, 0, 0, 0.5),
+			rgba(0, 0, 0, 0.75),
 			rgba(0, 0, 0, 1)
 		),
 		url(${receta.img}); background-size: cover"
@@ -57,7 +79,7 @@ function setOpciones() {
 						<div class="align-self-end mb-05  w100">
 
 							<span class="white w50 mr-05">
-								<i class="far fa-clock fa-sm"></i> ${receta.tiempo}
+								<i class="far fa-clock fa-sm"></i> ${receta.tiempo} min
 							</span>
 							<span class="white w50 ml-05">
 								<i class="fas fa-dollar-sign fa-sm" aria-label="pesos"></i> ${receta.costo}
@@ -76,5 +98,8 @@ function setOpciones() {
 setOpciones()
 
 const buttonVolver = document.getElementById('volver')
+
+Scategoria.addEventListener('change', setOpciones)
+Sorden.addEventListener('change', setOpciones)
 
 buttonVolver.addEventListener('click', volver)

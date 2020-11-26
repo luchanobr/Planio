@@ -22,6 +22,29 @@
 		</header>
 		<main>
 			<h1 class="text-center">Opciones de comidas</h1>
+			<h2 class="ml-1 mt-05">Ordenar por:</h2>
+			<div class="d-flex justify-content-spaceEvenly mb-1">
+				<select
+					class="select"
+					name="categoria"
+					id="categoria"
+					aria-label="categoria"
+					value="tiempo"
+				>
+					<option value="tiempo">Tiempo</option>
+					<option value="precio">Precio</option>
+				</select>
+				<select
+					class="select"
+					name="orden"
+					id="orden"
+					aria-label="orden"
+					value="Asc"
+				>
+					<option value="Asc">Menor a mayor</option>
+					<option value="Desc">mayor a menor</option>
+				</select>
+			</div>
 
 			<div
 				class="mini-receta-container d-flex justify-content-between w100"
@@ -36,7 +59,10 @@
 					id="nav"
 				>
 					<li>
-						<a href="/plan.html" class="btn-icon black"
+						<a
+							href="/plan.html"
+							class="btn-icon black"
+							aria-label="Plan semanal"
 							><i class="fas fa-home" aria-hidden="true"></i
 						></a>
 					</li>

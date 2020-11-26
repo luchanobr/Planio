@@ -7,7 +7,7 @@ const perfil1Button = document.getElementById(
 ) as HTMLButtonElement
 
 function goToPerfil2(event: any) {
-	let data: PlanioStore = {} as PlanioStore
+	const data: PlanioStore = {} as PlanioStore
 	setStorage(data)
 	event.preventDefault()
 	location.href = `http://${location.host}/perfil2.html`

@@ -21,7 +21,7 @@ interface Nutrientes {
 
 export interface Receta {
 	titulo: string
-	tiempo: string
+	tiempo: number
 	costo: number
 	img: string
 	datos: Nutrientes
@@ -64,7 +64,7 @@ export const preferencias: Preferencia[] = [
 export const recetas: Receta[] = [
 	{
 		titulo: 'Pollo al limón con verduras',
-		tiempo: '15min',
+		tiempo: 15,
 		costo: 150,
 		img: 'assets/img/polloAlLimon.jpg',
 		datos: {
@@ -125,7 +125,7 @@ export const recetas: Receta[] = [
 	},
 	{
 		titulo: 'Wok de verduras',
-		tiempo: '15min',
+		tiempo: 15,
 		costo: 150,
 		img: 'assets/img/wokVerduras.jpg',
 		datos: {
@@ -180,7 +180,7 @@ export const recetas: Receta[] = [
 	},
 	{
 		titulo: 'Falafel con Baba Ganoush',
-		tiempo: '30min',
+		tiempo: 30,
 		costo: 200,
 		img: 'assets/img/falafel.jpg',
 		datos: {
@@ -247,7 +247,7 @@ export const recetas: Receta[] = [
 	},
 	{
 		titulo: 'Curry de Brócoli',
-		tiempo: '25min',
+		tiempo: 25,
 		costo: 170,
 		img: 'assets/img/curryBrocoli.jpg',
 		datos: {
@@ -314,7 +314,7 @@ export const recetas: Receta[] = [
 	},
 	{
 		titulo: 'Berenjenas Parmesanas',
-		tiempo: '30min',
+		tiempo: 30,
 		costo: 210,
 		img: 'assets/img/berenjenasParme.jpg',
 		datos: {
@@ -375,7 +375,7 @@ export const recetas: Receta[] = [
 	},
 	{
 		titulo: 'Ensalada Thai de Fideos de Arroz',
-		tiempo: '15min',
+		tiempo: 15,
 		costo: 120,
 		img: 'assets/img/ensaladaThai.jpg',
 		datos: {
@@ -436,7 +436,7 @@ export const recetas: Receta[] = [
 	},
 	{
 		titulo: 'Ensalada de Pasta y Atún',
-		tiempo: '20min',
+		tiempo: 10,
 		costo: 180,
 		img: 'assets/img/ensaladaPasta.jpg',
 		datos: {
@@ -497,7 +497,7 @@ export const recetas: Receta[] = [
 	},
 	{
 		titulo: 'Pollo al Curry',
-		tiempo: '20 min',
+		tiempo: 20,
 		costo: 160,
 		img: 'assets/img/polloCurry.jpg',
 		datos: {
@@ -561,7 +561,7 @@ export const recetas: Receta[] = [
 export const desayunos: Receta[] = [
 	{
 		titulo: 'Crumble de Manzana',
-		tiempo: '10min',
+		tiempo: 10,
 		costo: 70,
 		img: 'assets/img/crumbleManzana.jpg',
 		datos: {
@@ -622,7 +622,7 @@ export const desayunos: Receta[] = [
 	},
 	{
 		titulo: 'Sandwich de Tofu',
-		tiempo: '5min',
+		tiempo: 5,
 		costo: 100,
 		img: 'assets/img/sandwichTofu.png',
 		datos: {
@@ -683,7 +683,7 @@ export const desayunos: Receta[] = [
 	},
 	{
 		titulo: 'Yogur de citricos',
-		tiempo: '10min',
+		tiempo: 5,
 		costo: 130,
 		img: 'assets/img/yogutCitrico.jpg',
 		datos: {
@@ -738,7 +738,7 @@ export const desayunos: Receta[] = [
 	},
 	{
 		titulo: 'Tostada con palta y huevo',
-		tiempo: '5min',
+		tiempo: 10,
 		costo: 80,
 		img: 'assets/img/panPalta.jpg',
 		datos: {
@@ -787,7 +787,7 @@ export const desayunos: Receta[] = [
 	},
 	{
 		titulo: 'Panqueque de Banana',
-		tiempo: '10min',
+		tiempo: 10,
 		costo: 80,
 		img: 'assets/img/tortillaBanana.jpg',
 		datos: {
@@ -836,7 +836,7 @@ export const desayunos: Receta[] = [
 	},
 	{
 		titulo: 'Crep de jamon y queso',
-		tiempo: '10min',
+		tiempo: 15,
 		costo: 150,
 		img: 'assets/img/crepJYQ.jpg',
 		datos: {
@@ -897,7 +897,7 @@ export const desayunos: Receta[] = [
 	},
 	{
 		titulo: 'Hummus con zanahoria',
-		tiempo: '10min',
+		tiempo: 10,
 		costo: 60,
 		img: 'assets/img/hummus.jpg',
 		datos: {
@@ -952,7 +952,7 @@ export const desayunos: Receta[] = [
 	},
 	{
 		titulo: 'Galletitas de Banana',
-		tiempo: '20min',
+		tiempo: 20,
 		costo: 190,
 		img: 'assets/img/galletaBanana.jpg',
 		datos: {
@@ -1004,7 +1004,7 @@ export const desayunos: Receta[] = [
 export const defaultComidas: Receta[] = [
 	{
 		titulo: 'Tostada con palta y huevo',
-		tiempo: '5min',
+		tiempo: 5,
 		costo: 80,
 		img: 'assets/img/panPalta.jpg',
 		datos: {
@@ -1114,7 +1114,7 @@ export const defaultComidas: Receta[] = [
 	},
 	{
 		titulo: 'Crep de jamon y queso',
-		tiempo: '10min',
+		tiempo: 10,
 		costo: 150,
 		img: 'assets/img/crepJYQ.jpg',
 		datos: {
@@ -1175,7 +1175,7 @@ export const defaultComidas: Receta[] = [
 	},
 	{
 		titulo: 'Berenjenas Parmesanas',
-		tiempo: '30min',
+		tiempo: 30,
 		costo: 210,
 		img: 'assets/img/berenjenasParme.jpg',
 		datos: {

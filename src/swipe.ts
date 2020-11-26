@@ -8,7 +8,6 @@ function setScale(index: number) {
 }
 
 function setImagenes() {
-	//  refactor
 	let initialX = 0
 	swipe.innerHTML = ''
 	preferencias.length === 0
@@ -18,10 +17,24 @@ function setImagenes() {
 		const card = document.createElement('div')
 		card.id = `${index}`
 		const s = index - preferencias.length
-		card.innerHTML = `<div id="${index}3"> <div class="img-container"> <div class="img" style="background-image: url(${item.url});"  alt="${item.titulo}"></div> <div class="fondo-img" style="background: ${item.fondo}"> </div>  </div> <div tabindex="0" id="${item.titulo}"> <p class="sr-only"> Preferncias ${preferencias.length} de 4 <P> <h3 class="ml-05 my-1" >${item.titulo}</h3> <p class="ml-05 text-light my-1">${item.descripcion}</p> </div> </div>`
+		card.innerHTML = `<div id="${index}3"> <div class="img-container"> <div class="img" style="background-image: url(${
+			item.url
+		});"  alt="${
+			item.titulo
+		}"></div> <div class="fondo-img" style="background: ${
+			item.fondo
+		}"> </div>  </div> <div tabindex="0" id="${
+			item.titulo
+		}"> <p class="sr-only"> Preferncias ${
+			5 - preferencias.length
+		} de 4 <P> <h2 class="ml-05 my-1" >${
+			item.titulo
+		}</h2> <p class="ml-05 text-light my-1">${
+			item.descripcion
+		}</p> </div> </div>`
 		card.classList.add('swipe-item')
-		let z = (index + 1) * 10
-		let margin = `${index * -10}px`
+		const z = (index + 1) * 10
+		const margin = `${index * -10}px`
 		card.style.setProperty('z-index', z.toString())
 		card.style.setProperty('top', margin)
 		swipe.appendChild(card)
@@ -45,8 +58,8 @@ function setImagenes() {
 	}
 
 	function moveEnd(e: TouchEvent) {
-		let finalX = e.changedTouches[0].clientX
-		let result = finalX - initialX
+		const finalX = e.changedTouches[0].clientX
+		const result = finalX - initialX
 		console.log(finalX, result, initialX)
 		if (Math.abs(result) <= 60) {
 			null

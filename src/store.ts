@@ -7,13 +7,13 @@ export interface PlanioStore {
 }
 
 const setStorage = (planioStore: PlanioStore) => {
-	let data = JSON.stringify(planioStore)
+	const data = JSON.stringify(planioStore)
 	localStorage.setItem('planio', data)
 }
 
 const getStorage = (): PlanioStore => {
-	let data = localStorage.getItem('planio')
-	let planioStore = JSON.parse(data)
+	const data = localStorage.getItem('planio')
+	const planioStore = JSON.parse(data)
 	return planioStore
 }
 

@@ -12,7 +12,8 @@
 }
 
 :root {
-	--brand: #00c7ac;
+	/* verde viejo  #00c7ac */
+	--brand: #673ab7;
 	--black: #1f1c1c;
 	--grey: #403c3c;
 	--lightGrey: #dedede;
@@ -85,6 +86,10 @@ footer {
 	margin-bottom: 0px;
 	width: 100%;
 	background: white;
+	z-index: 1500;
+}
+nav {
+	width: 100%;
 }
 
 *:focus {
@@ -233,7 +238,7 @@ fieldset {
 	min-width: 45px;
 	min-height: 45px;
 	background: transparent;
-	color: var(--Mediumgrey);
+	color: var(--black);
 	z-index: 1;
 }
 .perfil {
@@ -292,7 +297,7 @@ fieldset {
 
 .text-help {
 	font-size: 90%;
-	color: var(--Mediumgrey);
+	color: var(--black);
 	text-align: center;
 }
 
@@ -309,10 +314,16 @@ fieldset {
 }
 
 input:checked + .radio-label {
-	background: linear-gradient(rgba(0, 199, 172, 0.5), rgba(0, 199, 172, 0.05));
+	background: linear-gradient(
+		rgba(103, 58, 183, 0.5),
+		rgba(103, 58, 183, 0.05)
+	);
 }
 input:checked + .input-label {
-	background: linear-gradient(rgba(0, 199, 172, 0.5), rgba(0, 199, 172, 0.05));
+	background: linear-gradient(
+		rgba(103, 58, 183, 0.5),
+		rgba(103, 58, 183, 0.05)
+	);
 }
 
 input:focus + .radio-label {
@@ -526,7 +537,7 @@ a[href]:focus {
 }
 
 .text-light {
-	font-weight: 200;
+	font-weight: 400;
 }
 
 .h5 {
@@ -535,7 +546,7 @@ a[href]:focus {
 }
 
 .h1 {
-	font-size: 2rem;
+	font-size: 2.5rem;
 }
 .body-perfil4 {
 	background-color: var(--brand);
@@ -629,12 +640,12 @@ a[href]:focus {
 .text-small {
 	font-size: 0.8rem;
 	font-weight: 400;
-	color: var(--grey);
+	color: var(--black);
 }
 
 .text-fechas {
 	font-size: 0.7rem;
-	color: var(--Mediumgrey);
+	color: var(--black);
 }
 
 .brand {
@@ -642,11 +653,11 @@ a[href]:focus {
 }
 
 .receta-container {
-	max-height: 70vh;
 	overflow-y: scroll;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	margin-bottom: 15%;
 }
 
 .btn-card {
@@ -701,11 +712,12 @@ a[href]:focus {
 		),
 		url('../img/receta.png');
 	background-size: cover;
+	margin-bottom: 15%;
 }
 
 .titulo-mini-receta {
-	font-size: 1.1rem;
-	font-weight: 300;
+	font-size: 1.2rem;
+	font-weight: 400;
 	color: white;
 	margin-left: 1.1rem;
 	text-align: left;
@@ -721,6 +733,7 @@ a[href]:focus {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	margin-bottom: 15%;
 }
 
 .receta-video {
@@ -728,13 +741,13 @@ a[href]:focus {
 	display: flex;
 	flex-wrap: wrap;
 	width: 100%;
-	height: 70vh;
+	height: 85vh;
 	justify-content: center;
 }
 
 .tabs {
 	position: absolute;
-	height: 30vh;
+	height: 15vh;
 	z-index: 10;
 	bottom: 0;
 	background: #fff;
@@ -770,11 +783,14 @@ a[href]:focus {
 .tab-button {
 	border: 0;
 	padding: 0.5rem 1rem;
-	text-decoration: underline;
-	color: var(--Mediumgrey);
+	color: var(--black);
 	background: transparent;
 	font-size: 1.2rem;
 	font-weight: 600;
+}
+
+.text-underline {
+	text-decoration: underline !important;
 }
 
 .tab-content {
@@ -792,7 +808,7 @@ a[href]:focus {
 
 @keyframes expandir {
 	0% {
-		height: 30vh;
+		height: 15vh;
 	}
 
 	100% {
@@ -806,7 +822,7 @@ a[href]:focus {
 	}
 
 	100% {
-		height: 30vh;
+		height: 15vh;
 	}
 }
 
@@ -817,7 +833,7 @@ a[href]:focus {
 
 .contraer {
 	animation: contraer 0.5s linear;
-	height: 30vh;
+	height: 15vh;
 }
 .separador-datos {
 	width: 1px;
@@ -826,13 +842,16 @@ a[href]:focus {
 .select {
 	border: 0;
 	color: var(--brand);
-	margin-right: 0.5rem;
-	margin-left: 0.5rem;
-	font-size: 1rem;
+	font-size: 1.2rem;
+	border-radius: 0.5rem;
+	font-weight: 500;
+	padding: 0.5rem 1rem;
+	box-shadow: 0px 3px 8px 2px rgba(207, 207, 207, 0.925);
 }
+
 .btn-float {
 	position: fixed !important;
-	bottom: 45px !important;
+	bottom: 50px !important;
 	padding: 1rem 1rem;
 	z-index: 1000 !important;
 	font-size: 1rem;
@@ -922,4 +941,13 @@ table {
 }
 .mr-45px {
 	margin-right: 45px;
+}
+.div-header {
+	width: 45px !important;
+	height: 45px !important;
+}
+
+.p-receta {
+	font-size: 1.2rem;
+	color: white;
 }
