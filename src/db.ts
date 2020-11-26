@@ -1053,7 +1053,7 @@ export const defaultComidas: Receta[] = [
 	},
 	{
 		titulo: 'Pollo al limón con verduras',
-		tiempo: '15min',
+		tiempo: 15,
 		costo: 150,
 		img: 'assets/img/polloAlLimon.jpg',
 		datos: {
