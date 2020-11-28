@@ -1,7 +1,7 @@
 async function nextPage() {
-	await setTimeout(function () {
-		location.href = `http://${location.host}/plan.html`
-	}, 5000)
+	location.href = `http://${location.host}/plan.html`
 }
 
-document.addEventListener('load', nextPage, true)
+const ir = document.getElementById('ir')
+
+ir.addEventListener('click', nextPage, true)

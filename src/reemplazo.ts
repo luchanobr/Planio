@@ -1,3 +1,6 @@
-setTimeout(function goToPlanSemanalUpdate() {
+function goToPlanSemanalUpdate() {
 	location.href = `http://${location.host}/plan.html`
-}, 5000)
+}
+
+const volver = document.getElementById('volver')
+volver.addEventListener('click', goToPlanSemanalUpdate)

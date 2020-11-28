@@ -10,13 +10,13 @@
 	</head>
 	<body>
 		<header class="d-flex justify-content-center align-items-center">
-			<a
+			<button
 				class="btn-icon d-flex justify-content-center align-items-center"
 				aria-label="volver a la pagina anterior"
 				id="volver"
 			>
 				<i class="fas fa-arrow-left" aria-hidden="true"></i>
-			</a>
+			</button>
 
 			<p class="perfil flex-grow text-center">Creación del perfil</p>
 			<div class="div-header"></div>
@@ -45,7 +45,9 @@
 						</div>
 						<div class="checkbox-item">
 							<input type="checkbox" id="tacc" class="checkbox" />
-							<label for="tacc" class="input-label">Sin TACC</label>
+							<label for="tacc" class="input-label" aria-label="Apto celíacos"
+								>Sin TACC</label
+							>
 						</div>
 						<div class="checkbox-item">
 							<input type="checkbox" id="soja" class="checkbox" />

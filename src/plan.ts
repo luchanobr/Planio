@@ -107,7 +107,7 @@ function sumarSemana() {
 function setComidas() {
 	const comidasContainer = document.getElementById('recetas-container')
 	comidas.map((comida, index) => {
-		const card = document.createElement('div')
+		const card = document.createElement('li')
 		card.classList.add('card-receta', 'w90', 'd-flex', 'flex-wrap')
 		card.style.background = `linear-gradient(
 			rgba(0, 0, 0, 0.2),
@@ -129,10 +129,14 @@ function setComidas() {
 					<div class="d-flex justify-content-between align-self-end w100 mb-1">
 						<div class="ml-1">
 							<span class="white mr-05">
-								<i class="far fa-clock fa-sm"></i> ${comida.tiempo} min
+								<i class="far fa-clock fa-sm" aria-label="Tiempo de preparación" ></i> ${
+									comida.tiempo
+								} min
 							</span>
 							<span class="white">
-								<i class="fas fa-dollar-sign fa-sm" aria-label="pesos"></i> ${comida.costo}
+								<i class="fas fa-dollar-sign fa-sm" aria-label="Costo pesos"></i> ${
+									comida.costo
+								}
 							</span>
 						</div>
 						<button class="btn-card mr-05" id="${tipoComida(index)}">

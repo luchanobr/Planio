@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Receta, recetas } from './db'
 import { getStorage, PlanioStore, setStorage } from './store'
 import { volver } from './util'
@@ -58,10 +59,12 @@ function setReceta(receta: Receta) {
 				</div>
 				<div class="d-flex justify-content-center">
 					<p class="mr-05 white p-receta">
-						<i class="far fa-clock"></i> ${receta.tiempo} min
+						<i class="far fa-clock" aria-label="Tiempo de preparación"></i> ${
+							receta.tiempo
+						} min
 					</p>
 					<p class="ml-05 white p-receta">
-						<i class="fas fa-dollar-sign" aria-label="pesos"></i> ${receta.costo}
+						<i class="fas fa-dollar-sign" aria-label="Costo pesos"></i> ${receta.costo}
 					</p>
 				</div>
 			</div>
@@ -175,6 +178,7 @@ function setReceta(receta: Receta) {
 		pasos.classList.add('display-none')
 	}
 
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	function expandir() {
 		const isExpanded = tabs.classList.contains('expanded')
 		if (!isExpanded) {

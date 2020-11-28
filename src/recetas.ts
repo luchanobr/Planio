@@ -1,4 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Receta, recetas, desayunos } from './db'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { setStorage, PlanioStore, getStorage } from './store'
 import { volver } from './util'
 
@@ -54,7 +56,7 @@ function setOpciones() {
 	opcionesRecetas = ordenar(opcionesRecetas)
 
 	opcionesRecetas.map((receta) => {
-		const miniReceta = document.createElement('div')
+		const miniReceta = document.createElement('li')
 		miniReceta.id = receta.titulo
 		miniReceta.classList.add(
 			'w40',
@@ -79,10 +81,10 @@ function setOpciones() {
 						<div class="align-self-end mb-05  w100">
 
 							<span class="white w50 mr-05">
-								<i class="far fa-clock fa-sm"></i> ${receta.tiempo} min
+								<i class="far fa-clock fa-sm" aria-label="Tiempo de preparación"></i> ${receta.tiempo} min
 							</span>
 							<span class="white w50 ml-05">
-								<i class="fas fa-dollar-sign fa-sm" aria-label="pesos"></i> ${receta.costo}
+								<i class="fas fa-dollar-sign fa-sm" aria-label="Costo pesos"></i> ${receta.costo}
 							</span>
 						</div>
 					</div>
