@@ -60,9 +60,15 @@ function setFechas(now = hoy) {
 	const Newsemana = semana.map((dia, index) => {
 		const span = document.createElement('td')
 		span.classList.add('min-w')
+		span.setAttribute('tabindex', '-1')
 		span.textContent = `${now.subtract(now.day() - index, 'd').date()}`
-		if (now.date(dia).format('DD/MM/YYYY') === hoy.format('DD/MM/YYYY'))
+		if (
+			now.subtract(now.day() - index, 'd').format('DD/MM/YYYY') ===
+			hoy.format('DD/MM/YYYY')
+		) {
 			span.classList.add('brand')
+			span.setAttribute('tabindex', '0')
+		}
 		fechas.appendChild(span)
 		return now.subtract(now.day() - index, 'd')
 	})
@@ -78,6 +84,9 @@ function setFechas(now = hoy) {
 			'MMMM',
 		)} de ${Newsemana[0].year()} `
 		tituloCalendario.textContent = titulo
+	}
+	if (now !== hoy) {
+		fechas.firstElementChild.setAttribute('tabindex', '0')
 	}
 }
 
@@ -96,11 +105,11 @@ menos.addEventListener('click', restarSemana)
 mas.addEventListener('click', sumarSemana)
 
 function restarSemana() {
-	fechaContador = fechaContador.subtract(7, 'd')
+	fechaContador = fechaContador.subtract(7, 'day')
 	setFechas(fechaContador)
 }
 function sumarSemana() {
-	fechaContador = fechaContador.add(7, 'd')
+	fechaContador = fechaContador.add(7, 'day')
 	setFechas(fechaContador)
 }
 
@@ -192,3 +201,33 @@ function goToRecetas(id: string, e: Event) {
 const buttonVolver = document.getElementById('volver')
 
 buttonVolver.addEventListener('click', volver)
+
+function tableNavigation(e: KeyboardEvent) {
+	const cell = e.target as HTMLTableDataCellElement
+	switch (e.code) {
+		case 'ArrowRight':
+			const nextCell = cell.nextElementSibling as HTMLTableDataCellElement
+
+			if (nextCell !== null) {
+				nextCell.focus()
+			} else {
+				sumarSemana()
+				const primero = fechas.firstElementChild as HTMLTableDataCellElement
+				primero.focus()
+			}
+			break
+
+		case 'ArrowLeft':
+			const previusCell = cell.previousElementSibling as HTMLTableDataCellElement
+			if (previusCell !== null) {
+				previusCell.focus()
+			} else {
+				restarSemana()
+				const ultimo = fechas.lastElementChild as HTMLTableDataCellElement
+				ultimo.focus()
+			}
+			break
+	}
+}
+
+fechas.addEventListener('keydown', tableNavigation)
