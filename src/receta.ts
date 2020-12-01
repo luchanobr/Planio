@@ -136,6 +136,7 @@ function setReceta(receta: Receta) {
                     <ul class="w80 text-light" id="ul-ingredientes" >
 
 					</ul>
+					<button class="btn-outline" id="compras" type="button">Agregar a lista de compras</button>
 				</div>
 				<div id="pasos" class="tab-content w100 display-none" role="tabpanel" aria-labelledby="tb2" tabindex="0">
                     <ol class="w80" id="ol-pasos">
@@ -143,7 +144,7 @@ function setReceta(receta: Receta) {
                 </div>
 				</div>
 			</div>
-			<button class="btn mt-1 w80 btn-float" id="reemplazar">
+			<button class="btn mt-1 w80 btn-float" id="reemplazar" type="button">
 					Elegir comida
 			</button>
 				`
@@ -156,6 +157,8 @@ function setReceta(receta: Receta) {
 	const tabList = document.querySelector('[role="tablist"]')
 	const video = document.getElementById('video')
 	const tabsContainer = document.getElementById('tabs-container')
+	const buttonCompras = document.getElementById('compras')
+	let enListaCompras = false
 
 	setPasos()
 	setIngredientes()
@@ -285,6 +288,15 @@ function setReceta(receta: Receta) {
 			tbIngredientes.focus()
 		}
 	}
+
+	function handlerCompras() {
+		buttonCompras.textContent = enListaCompras
+			? 'Agregar a lista de compras'
+			: 'Quitar de lista de compras'
+		enListaCompras = !enListaCompras
+	}
+
+	buttonCompras.addEventListener('click', handlerCompras)
 }
 
 setReceta(receta)

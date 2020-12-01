@@ -12,6 +12,7 @@ module.exports = {
 		recetas: './src/recetas.ts',
 		receta: './src/receta.ts',
 		reemplazo: './src/reemplazo.ts',
+		acce: './src/acce.ts',
 	},
 	devtool: 'eval-cheap-module-source-map',
 	module: {

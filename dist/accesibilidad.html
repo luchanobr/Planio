@@ -4,11 +4,25 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Planio - Accesibilidad</title>
-
+		<script src="acce.bundle.js" defer></script>
 		<link rel="stylesheet" href="./assets/css/styles.css" />
 		<link rel="stylesheet" href="./assets/css/all.css" />
 	</head>
 	<body>
+		<header
+			class="d-flex align-items-center justify-content-spaceEvenly flex-grow"
+		>
+			<button
+				class="btn-icon black d-flex justify-content-center align-items-center"
+				aria-label="volver a plan semanal"
+				id="volver"
+			>
+				<i class="fas fa-arrow-left fa-lg" aria-hidden="true"></i>
+			</button>
+
+			<p class="perfil flex-grow text-center"></p>
+			<div class="div-header"></div>
+		</header>
 		<main class="main-accesibilidad">
 			<header class="d-flex justify-content-center flex-wrap">
 				<h1 class="">Declaración de accesibilidad de Planio</h1>

@@ -80,12 +80,12 @@ function setOpciones() {
 					>	<h2 class="titulo-mini-receta w75">${receta.titulo}</h2>
 						<div class="align-self-end mb-05  w100">
 
-							<span class="white w50 mr-05">
+							<p class="white w50 mr-05 display-inline">
 								<i class="far fa-clock fa-sm" aria-label="Tiempo de preparación"></i> ${receta.tiempo} min
-							</span>
-							<span class="white w50 ml-05">
+							</p>
+							<p class="white w50 ml-05 display-inline">
 								<i class="fas fa-dollar-sign fa-sm" aria-label="Costo pesos"></i> ${receta.costo}
-							</span>
+							</p>
 						</div>
 					</div>
 
