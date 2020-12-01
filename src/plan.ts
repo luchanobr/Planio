@@ -138,12 +138,12 @@ function setComidas() {
 					<div class="d-flex justify-content-between align-self-end w100 mb-1">
 						<div class="ml-1">
 							<span class="white mr-05">
-								<i class="far fa-clock fa-sm" aria-label="Tiempo de preparación" role="img" ></i> ${
+								<i class="far fa-clock fa-sm" aria-label="Tiempo de preparación" role="none" ></i> ${
 									comida.tiempo
 								} min
 							</span>
 							<span class="white">
-								<i class="fas fa-dollar-sign fa-sm" aria-label="Costo pesos" role="img"></i> ${
+								<i class="fas fa-dollar-sign fa-sm" aria-label="Costo pesos" role="none"></i> ${
 									comida.costo
 								}
 							</span>
