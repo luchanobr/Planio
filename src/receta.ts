@@ -70,7 +70,7 @@ function setReceta(receta: Receta) {
 			</div>
 			<div id="tabs" class="tabs" aria-expanded="false">
 				<div class="expand-container">
-					<button class="expand" id="toggle" aria-label="expandir pestañas"></button>
+					<button class="expand" type="button" id="toggle" aria-label="expandir pestañas"></button>
 				</div>
 				<div class="display-none" id="tabs-container">
 				<div class="tab-container" role="tablist" aria-label="Pestañas informacion de la receta"  >
