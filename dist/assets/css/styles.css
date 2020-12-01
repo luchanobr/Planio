@@ -929,6 +929,7 @@ button:disabled {
 .min-w {
 	min-width: 13px;
 	text-align: center;
+	font-weight: 500;
 }
 
 abbr {

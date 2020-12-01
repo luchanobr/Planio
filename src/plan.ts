@@ -129,7 +129,7 @@ function setComidas() {
 		card.innerHTML = `<div class="d-flex justify-content-between mt-05 w100">
 						<h2 class="text-light white ml-1 mt-05 capitalize">${tipoComida(index)}</h2>
 						<button class="btn-icon white mr-05">
-							<i class="far fa-heart" aria-label="agregar a favoritos"></i>
+							<i class="far fa-heart fa-lg" aria-label="agregar a favoritos"></i>
 						</button>
 					</div>
 					<h3 class="white ml-1 titulo-receta w66">
@@ -138,14 +138,12 @@ function setComidas() {
 					<div class="d-flex justify-content-between align-self-end w100 mb-1">
 						<div class="ml-1">
 							<span class="white mr-05">
-								<i class="far fa-clock fa-sm" aria-label="Tiempo de preparación" role="none" ></i> ${
-									comida.tiempo
-								} min
+							<span class="sr-only">Tiempo de preparación </span>
+								<i class="far fa-clock fa-sm" aria-hidden="true" ></i> ${comida.tiempo} min
 							</span>
 							<span class="white">
-								<i class="fas fa-dollar-sign fa-sm" aria-label="Costo pesos" role="none"></i> ${
-									comida.costo
-								}
+							<span class="sr-only">Costo pesos </span>
+								<i class="fas fa-dollar-sign fa-sm" aria-hidden="true"></i> ${comida.costo}
 							</span>
 						</div>
 						<button class="btn-card mr-05" id="${tipoComida(index)}">

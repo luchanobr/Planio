@@ -58,11 +58,13 @@ function setReceta(receta: Receta) {
 					<h1 class="white h1 w80">${receta.titulo}</h1>
 				</div>
 				<div class="d-flex justify-content-center">
-					<p class="mr-05 white p-receta" aria-label="Tiempo de preparación">
-						<i class="far fa-clock" ></i> ${receta.tiempo} min
+					<p class="mr-05 white p-receta" >
+						<span class="sr-only">Tiempo de preparación </span>
+						<i class="far fa-clock" aria-hidden="true" ></i> ${receta.tiempo} min
 					</p>
-					<p class="ml-05 white p-receta" aria-label="Costo pesos">
-						<i class="fas fa-dollar-sign" ></i> ${receta.costo}
+					<p class="ml-05 white p-receta">
+					<span class="sr-only">Costo pesos </span>
+						<i class="fas fa-dollar-sign" aria-hidden="true"></i> ${receta.costo}
 					</p>
 				</div>
 			</div>
