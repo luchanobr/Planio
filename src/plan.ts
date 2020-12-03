@@ -201,7 +201,6 @@ function goToRecetas(id: string, e: Event) {
 	e.preventDefault()
 	const data = getStorage()
 	data.comida = id
-	console.log(data)
 	setStorage(data)
 	location.href = `http://${location.host}/recetas.html`
 }

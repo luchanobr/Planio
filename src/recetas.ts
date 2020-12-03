@@ -29,7 +29,6 @@ const Sorden = document.getElementById('orden') as HTMLSelectElement
 function ordenar(recetas: Receta[]): Receta[] {
 	const attr = Scategoria.value
 	const orden = Sorden.value
-	console.log({ attr }, { orden })
 	recetas = recetas.sort((a, b) => {
 		if (attr === 'tiempo') {
 			if (a.tiempo < b.tiempo) {

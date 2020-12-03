@@ -768,6 +768,7 @@ a[href]:focus {
 		url('../img/receta.png');
 	background-size: cover;
 	margin-bottom: 15%;
+	position: relative;
 }
 
 .titulo-mini-receta {
@@ -789,6 +790,7 @@ a[href]:focus {
 	flex-wrap: wrap;
 	justify-content: center;
 	margin-bottom: 15%;
+	position: relative;
 }
 
 .receta-video {
@@ -1038,6 +1040,7 @@ table {
 	width: 100%;
 	height: 100%;
 }
+
 a:visited {
 	text-decoration: none;
 	color: inherit;
@@ -1046,6 +1049,17 @@ a:active {
 	text-decoration: none;
 	color: inherit;
 }
+
+a:link {
+	text-decoration: none;
+	color: inherit;
+}
+
+a:focus {
+	text-decoration: none;
+	color: inherit;
+}
+
 .btn-calendar {
 	border: 0;
 	background: transparent;
