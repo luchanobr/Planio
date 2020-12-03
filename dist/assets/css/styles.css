@@ -1041,6 +1041,10 @@ table {
 	height: 100%;
 }
 
+.link-card:focus {
+	color: white !important;
+}
+
 a:visited {
 	text-decoration: none;
 	color: inherit;
