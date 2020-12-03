@@ -68,7 +68,7 @@ function setFechas(now = hoy) {
 		buttonDay.textContent = `${now.subtract(now.day() - index, 'd').date()}`
 		buttonDay.setAttribute(
 			'aria-label',
-			`${now.subtract(now.day() - index, 'd').format('DD/MM/YYYY')}`,
+			`${now.subtract(now.day() - index, 'd').format('DD-MM-YYYY')}`,
 		)
 		if (
 			now.subtract(now.day() - index, 'd').format('DD/MM/YYYY') ===
@@ -217,6 +217,7 @@ function tableNavigation(e: KeyboardEvent) {
 			const nextCell = cell.parentElement.nextElementSibling
 			if (nextCell !== null) {
 				const button = nextCell.firstElementChild as HTMLButtonElement
+
 				button.focus()
 			} else {
 				sumarSemana()
@@ -232,6 +233,7 @@ function tableNavigation(e: KeyboardEvent) {
 
 			if (previusCell !== null) {
 				const button = previusCell.firstElementChild as HTMLButtonElement
+
 				button.focus()
 			} else {
 				restarSemana()

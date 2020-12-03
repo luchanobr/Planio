@@ -28,11 +28,11 @@ function setReceta(receta: Receta) {
 		receta.pasos.map((paso, index) => {
 			const ol = document.getElementById('ol-pasos')
 			const li = document.createElement('li')
-			li.innerHTML = `<p class="text-light">
-								<span class="h5">Paso ${index + 1}</span>
-								<br />
-								${paso}
-                            </p>`
+			li.innerHTML = `<div class="text-light">
+								<h3 class="h5">Paso ${index + 1}</h3>
+								<p>${paso} </p>
+
+                            </div>`
 			ol.appendChild(li)
 		})
 	}
@@ -75,8 +75,8 @@ function setReceta(receta: Receta) {
 				</div>
 				<div class="" id="tabs-container">
 				<div class="tab-container" role="tablist" aria-label="Pestañas informacion de la receta"  >
-					<button class="tab-button text-underline" role="tab" id="tb1" aria-selected="true" tabindex="0" >Ingredientes</button>
-					<button class="tab-button" role="tab" id="tb2" aria-selected="false" tabindex="-1" >Receta</button>
+				 <h2>	<button class="tab-button text-underline" role="tab" id="tb1" aria-selected="true" tabindex="0" >Ingredientes</button> </h2>
+					<h2><button class="tab-button" role="tab" id="tb2" aria-selected="false" tabindex="-1" >Receta</button> </h2>
 				</div>
 
 				<div
@@ -105,7 +105,7 @@ function setReceta(receta: Receta) {
 						<div
 							class="d-flex flex-column justify-content-center text-center small"
 						>
-							<span>Calorías</span><span id="kcal">${
+							<h3>Calorías</h3><span id="kcal">${
 								receta.datos.kcal * porciones
 							}</span><span aria-hidden="true">kcal</span> <span class="sr-only">kilocalorias</span>
 						</div>
@@ -113,7 +113,7 @@ function setReceta(receta: Receta) {
 						<div
 							class="d-flex flex-column justify-content-center text-center small"
 						>
-							<span>Proteinas</span><span id="prot">${
+							<h3>Proteinas</h3><span id="prot">${
 								receta.datos.prot * porciones
 							}</span><span>Gramos </span>
 						</div>
@@ -121,7 +121,7 @@ function setReceta(receta: Receta) {
 						<div
 							class="d-flex flex-column justify-content-center text-center small"
 						>
-							<span>Grasas</span><span id="grasas">${
+							<h3>Grasas</h3><span id="grasas">${
 								receta.datos.grasas * porciones
 							}</span><span>Gramos </span>
 						</div>
@@ -129,13 +129,13 @@ function setReceta(receta: Receta) {
 						<div
 							class="d-flex flex-column justify-content-center text-center small"
 						>
-							<span aria-hidden="true">Carbs.</span><span class="sr-only">Carbohidratos</span> <span id="carbs">${
+							<h3 aria-hidden="true">Carbs.</h3><h3 class="sr-only">Carbohidratos</h3> <span id="carbs">${
 								receta.datos.carbs * porciones
 							}</span
 							><span>Gramos </span>
 						</div>
 					</div>
-                    <ul class="w80 text-light" id="ul-ingredientes" >
+                    <ul class="w80 text-light" id="ul-ingredientes" aria-label="Lista de ingredientes" >
 
 					</ul>
 					<button class="btn-outline" id="compras" type="button" aria-live="polite">Agregar a lista de compras</button>
@@ -165,7 +165,6 @@ function setReceta(receta: Receta) {
 	setPasos()
 	setIngredientes()
 
-	let touchStarY = 0
 	const tbIngredientes = document.getElementById('tb1')
 	const tbPasos = document.getElementById('tb2')
 
