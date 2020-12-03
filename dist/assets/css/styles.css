@@ -1074,3 +1074,8 @@ a:focus {
 .btn-calendar:focus {
 	border: 2px solid var(--brand) !important;
 }
+
+.h2-tab {
+	font-size: inherit;
+	font-weight: inherit;
+}

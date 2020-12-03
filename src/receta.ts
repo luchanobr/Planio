@@ -75,8 +75,8 @@ function setReceta(receta: Receta) {
 				</div>
 				<div class="" id="tabs-container">
 				<div class="tab-container" role="tablist" aria-label="Pestañas informacion de la receta"  >
-				 <h2>	<button class="tab-button text-underline" role="tab" id="tb1" aria-selected="true" tabindex="0" >Ingredientes</button> </h2>
-					<h2><button class="tab-button" role="tab" id="tb2" aria-selected="false" tabindex="-1" >Receta</button> </h2>
+					<button class="tab-button text-underline" role="tab" id="tb1" aria-selected="true" tabindex="0" >  <h2 class="h2-tab">Ingredientes</h2></button>
+					<button class="tab-button" role="tab" id="tb2" aria-selected="false" tabindex="-1" > <h2 class="h2-tab">Receta</h2></button>
 				</div>
 
 				<div
