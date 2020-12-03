@@ -10,13 +10,15 @@
 	</head>
 	<body>
 		<header class="d-flex align-content-center">
-			<button
-				class="btn-icon"
-				aria-label="volver a la pagina anterior"
+			<a
+				class="btn-icon d-flex justify-content-center align-items-center"
+				aria-label="volver a la página anterior"
 				id="volver"
+				href="/"
+				rel="prev"
 			>
 				<i class="fas fa-arrow-left fa-lg" aria-hidden="true"></i>
-			</button>
+			</a>
 
 			<p class="perfil flex-grow text-center mr-45px">Reemplazar Comida</p>
 		</header>
@@ -28,7 +30,7 @@
 					class="select"
 					name="categoria"
 					id="categoria"
-					aria-label="categoria"
+					aria-label="Categoría"
 					value="tiempo"
 				>
 					<option value="tiempo">Tiempo</option>
@@ -38,7 +40,7 @@
 					class="select"
 					name="orden"
 					id="orden"
-					aria-label="orden"
+					aria-label="Orden"
 					value="Asc"
 				>
 					<option value="Asc">Menor a mayor</option>
@@ -50,6 +52,7 @@
 				class="mini-receta-container d-flex justify-content-between w100"
 				id="mini-recetas-container"
 				aria-label="Sugerencias de recetas"
+				aria-live="polite"
 			></ol>
 		</main>
 		<footer>
@@ -83,17 +86,8 @@
 						></a>
 					</li>
 					<li>
-						<a href="" class="btn-icon black" aria-label="perfil"
+						<a href="/perfil.html" class="btn-icon black" aria-label="perfil"
 							><i class="far fa-user" aria-hidden="true"></i
-						></a>
-					</li>
-					<li>
-						<a
-							href="/accesibilidad.html"
-							class="btn-icon black"
-							aria-label="declaracion de conformidad"
-						>
-							<i class="fas fa-universal-access" aria-hidden="true"></i
 						></a>
 					</li>
 				</ul>

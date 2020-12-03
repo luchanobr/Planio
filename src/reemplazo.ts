@@ -1,4 +1,5 @@
-function goToPlanSemanalUpdate() {
+function goToPlanSemanalUpdate(e: Event) {
+	e.preventDefault()
 	location.href = `http://${location.host}/plan.html`
 }
 

@@ -45,9 +45,9 @@ function setReceta(receta: Receta) {
 		),
 		url(${receta.img}); background-size: cover">
 				<div class="w100 d-flex justify-content-between flex-wrap align-self-start">
-				<button class="btn-icon white" id="volver" aria-label="volver" >
-					<i class="fas fa-arrow-left fa-lg"></i>
-				</button>
+				<a class="btn-icon white d-flex justify-content-center align-items-center" id="volver" aria-label="volver a la pagina anterior" href="/" rel="prev" >
+					<i class="fas fa-arrow-left fa-lg" aria-hidden="true"></i>
+				</a>
 				<button class="btn-icon white" aria-label="agregar a favoritos" >
 						<i class="far fa-heart fa-lg" aria-hidden="true"></i>
 				</button>
@@ -63,16 +63,17 @@ function setReceta(receta: Receta) {
 						<i class="far fa-clock" aria-hidden="true" ></i> ${receta.tiempo} min
 					</p>
 					<p class="ml-05 white p-receta">
-					<span class="sr-only">Costo pesos </span>
+					<span class="sr-only">Costo</span>
 						<i class="fas fa-dollar-sign" aria-hidden="true"></i> ${receta.costo}
+						<span class="sr-only">pesos</span>
 					</p>
 				</div>
 			</div>
-			<div id="tabs" class="tabs" aria-expanded="false">
+			<div id="tabs" class="tabs" >
 				<div class="expand-container">
-					<button class="expand" type="button" id="toggle" aria-label="expandir pestañas"></button>
+
 				</div>
-				<div class="display-none" id="tabs-container">
+				<div class="" id="tabs-container">
 				<div class="tab-container" role="tablist" aria-label="Pestañas informacion de la receta"  >
 					<button class="tab-button text-underline" role="tab" id="tb1" aria-selected="true" tabindex="0" >Ingredientes</button>
 					<button class="tab-button" role="tab" id="tb2" aria-selected="false" tabindex="-1" >Receta</button>
@@ -84,6 +85,7 @@ function setReceta(receta: Receta) {
 					class="tab-content w100"
 					aria-labelledby="tb1"
 					tabindex="0"
+					aria-live="polite"
 
 				>
 
@@ -136,7 +138,7 @@ function setReceta(receta: Receta) {
                     <ul class="w80 text-light" id="ul-ingredientes" >
 
 					</ul>
-					<button class="btn-outline" id="compras" type="button">Agregar a lista de compras</button>
+					<button class="btn-outline" id="compras" type="button" aria-live="polite">Agregar a lista de compras</button>
 				</div>
 				<div id="pasos" class="tab-content w100 display-none" role="tabpanel" aria-labelledby="tb2" tabindex="0">
                     <ol class="w80" id="ol-pasos">
@@ -150,7 +152,7 @@ function setReceta(receta: Receta) {
 				`
 
 	const select = document.getElementById('porciones') as HTMLInputElement
-	const button = document.getElementById('toggle')
+
 	const tabs = document.getElementById('tabs')
 	const ingredientes = document.getElementById('ingredientes')
 	const pasos = document.getElementById('pasos')
@@ -182,17 +184,6 @@ function setReceta(receta: Receta) {
 	}
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	function expandir() {
-		const isExpanded = tabs.classList.contains('expanded')
-		if (!isExpanded) {
-			tabs.classList.add('expanded')
-			tabs.classList.remove('contraer')
-			tbIngredientes.setAttribute('aria-expanded', 'true')
-			tbPasos.setAttribute('aria-expanded', 'true')
-			video.classList.toggle('align-content-start')
-			button.setAttribute('aria-label', 'contraer pestañas')
-		}
-	}
 
 	function tabPasos() {
 		tbIngredientes.classList.remove('text-underline')
@@ -227,9 +218,6 @@ function setReceta(receta: Receta) {
 	}
 
 	select.addEventListener('change', setPorciones)
-	button.addEventListener('click', swipeTabs)
-	button.addEventListener('touchstart', setTouchStart)
-	button.addEventListener('touchend', touchEnd)
 
 	function swipeTabs() {
 		const isExpanded = tabs.classList.contains('expanded')
@@ -238,36 +226,10 @@ function setReceta(receta: Receta) {
 			tabs.classList.remove('expanded')
 			tabsContainer.classList.add('display-none')
 			video.classList.toggle('align-content-start')
-			button.setAttribute('aria-label', 'expander pestañas')
 		} else {
 			tabs.classList.add('expanded')
 			tabs.classList.remove('contraer')
 			tabsContainer.classList.remove('display-none')
-			video.classList.toggle('align-content-start')
-			button.setAttribute('aria-label', 'contraer pestañas')
-		}
-	}
-
-	function setTouchStart(e: TouchEvent) {
-		touchStarY = e.changedTouches[0].clientY
-	}
-
-	function touchEnd(e: TouchEvent) {
-		const touchEnd = e.changedTouches[0].clientY
-		const result = touchStarY - touchEnd
-		if (Math.abs(result) <= 30) {
-			null
-		} else if (result > 0) {
-			tabs.classList.add('expanded')
-			tabs.classList.remove('contraer')
-			tbIngredientes.setAttribute('aria-expanded', 'true')
-			tbPasos.setAttribute('aria-expanded', 'true')
-			video.classList.toggle('align-content-start')
-		} else {
-			tabs.classList.add('contraer')
-			tabs.classList.remove('expanded')
-			tbIngredientes.setAttribute('aria-expanded', 'false')
-			tbPasos.setAttribute('aria-expanded', 'false')
 			video.classList.toggle('align-content-start')
 		}
 	}
@@ -317,4 +279,4 @@ function reemplazarReceta() {
 reemplazar.addEventListener('click', reemplazarReceta)
 const buttonVolver = document.getElementById('volver')
 
-buttonVolver.addEventListener('click', volver)
+buttonVolver.addEventListener('click', volver.bind(this))

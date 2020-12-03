@@ -59,15 +59,23 @@ function setFechas(now = hoy) {
 	semana[now.day()] = now.date()
 	const Newsemana = semana.map((dia, index) => {
 		const span = document.createElement('td')
+		const buttonDay = document.createElement('button')
+		span.appendChild(buttonDay)
+		buttonDay.setAttribute('tabindex', '-1')
+		buttonDay.classList.add('btn-calendar')
 		span.classList.add('min-w')
-		span.setAttribute('tabindex', '-1')
-		span.textContent = `${now.subtract(now.day() - index, 'd').date()}`
+
+		buttonDay.textContent = `${now.subtract(now.day() - index, 'd').date()}`
+		buttonDay.setAttribute(
+			'aria-label',
+			`${now.subtract(now.day() - index, 'd').format('DD/MM/YYYY')}`,
+		)
 		if (
 			now.subtract(now.day() - index, 'd').format('DD/MM/YYYY') ===
 			hoy.format('DD/MM/YYYY')
 		) {
-			span.classList.add('brand')
-			span.setAttribute('tabindex', '0')
+			buttonDay.classList.add('brand')
+			buttonDay.setAttribute('tabindex', '0')
 		}
 		fechas.appendChild(span)
 		return now.subtract(now.day() - index, 'd')
@@ -85,8 +93,8 @@ function setFechas(now = hoy) {
 		)} de ${Newsemana[0].year()} `
 		tituloCalendario.textContent = titulo
 	}
-	if (now !== hoy) {
-		fechas.firstElementChild.setAttribute('tabindex', '0')
+	if (now.format('DD/MM/YYYY') !== hoy.format('DD/MM/YYYY')) {
+		fechas.firstElementChild.firstElementChild.setAttribute('tabindex', '0')
 	}
 }
 
@@ -142,8 +150,9 @@ function setComidas() {
 								<i class="far fa-clock fa-sm" aria-hidden="true" ></i> ${comida.tiempo} min
 							</span>
 							<span class="white">
-							<span class="sr-only">Costo pesos </span>
+							<span class="sr-only">Costo</span>
 								<i class="fas fa-dollar-sign fa-sm" aria-hidden="true"></i> ${comida.costo}
+								<span class="sr-only">pesos</span>
 							</span>
 						</div>
 						<button class="btn-card mr-05" id="${tipoComida(index)}">
@@ -189,6 +198,7 @@ reemplazarCena.addEventListener(
 )
 
 function goToRecetas(id: string, e: Event) {
+	e.preventDefault()
 	const data = getStorage()
 	data.comida = id
 	console.log(data)
@@ -202,26 +212,32 @@ buttonVolver.addEventListener('click', volver)
 
 function tableNavigation(e: KeyboardEvent) {
 	const cell = e.target as HTMLTableDataCellElement
+
 	switch (e.code) {
 		case 'ArrowRight':
-			const nextCell = cell.nextElementSibling as HTMLTableDataCellElement
-
+			const nextCell = cell.parentElement.nextElementSibling
 			if (nextCell !== null) {
-				nextCell.focus()
+				const button = nextCell.firstElementChild as HTMLButtonElement
+				button.focus()
 			} else {
 				sumarSemana()
-				const primero = fechas.firstElementChild as HTMLTableDataCellElement
+				const primero = fechas.firstElementChild
+					.firstElementChild as HTMLButtonElement
 				primero.focus()
 			}
 			break
 
 		case 'ArrowLeft':
-			const previusCell = cell.previousElementSibling as HTMLTableDataCellElement
+			const previusCell = cell.parentElement
+				.previousElementSibling as HTMLButtonElement
+
 			if (previusCell !== null) {
-				previusCell.focus()
+				const button = previusCell.firstElementChild as HTMLButtonElement
+				button.focus()
 			} else {
 				restarSemana()
-				const ultimo = fechas.lastElementChild as HTMLTableDataCellElement
+				const ultimo = fechas.lastElementChild
+					.firstElementChild as HTMLButtonElement
 				ultimo.focus()
 			}
 			break

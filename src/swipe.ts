@@ -108,7 +108,8 @@ function rechazarPreferencia() {
 	}, 1000)
 }
 
-function goToPerfil4() {
+function goToPerfil4(e: Event) {
+	e.preventDefault()
 	location.href = `http://${location.host}/perfil4.html`
 }
 buttonContinuar.addEventListener('click', goToPerfil4, true)

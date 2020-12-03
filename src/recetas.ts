@@ -15,7 +15,8 @@ function setTitulos() {
 
 setTitulos()
 
-function goToReceta(receta: Receta) {
+function goToReceta(receta: Receta, e: Event) {
+	e.preventDefault()
 	const data: PlanioStore = { ...planioStore }
 	data.receta = receta
 	setStorage(data)
@@ -57,7 +58,7 @@ function setOpciones() {
 
 	opcionesRecetas.map((receta) => {
 		const miniReceta = document.createElement('li')
-		miniReceta.id = receta.titulo
+
 		miniReceta.classList.add(
 			'w40',
 			'mx-1',
@@ -77,7 +78,7 @@ function setOpciones() {
 			rgba(0, 0, 0, 1)
 		),
 		url(${receta.img}); background-size: cover"
-					>	<h2 class="titulo-mini-receta w75">${receta.titulo}</h2>
+					>	<h2 class="titulo-mini-receta w75"> <a href="/" class="link-card" id="${receta.titulo}" > ${receta.titulo} </a></h2>
 						<div class="align-self-end mb-05  w100">
 
 							<p class="white w50 mr-05 display-inline">
@@ -85,8 +86,9 @@ function setOpciones() {
 								<i class="far fa-clock fa-sm" aria-hidden="True"></i> ${receta.tiempo} min
 							</p>
 							<p class="white w50 ml-05 display-inline">
-								<span class="sr-only">Costo pesos </span>
+								<span class="sr-only">Costo </span>
 								<i class="fas fa-dollar-sign fa-sm" aria-hidden="true"></i> ${receta.costo}
+									<span class="sr-only">pesos </span>
 							</p>
 						</div>
 					</div>
