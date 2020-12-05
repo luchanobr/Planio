@@ -50,6 +50,32 @@ h1.textContent = `Hoy,  ${hoy.date()} de ${hoy.format('MMMM')}`
 
 const fechas = document.getElementById('fechas')
 
+function setIdTd(index: number) {
+	switch (index) {
+		case 0:
+			return 'domingo'
+			break
+		case 1:
+			return 'lunes'
+			break
+		case 2:
+			return 'martes'
+			break
+		case 3:
+			return 'miercoles'
+			break
+		case 4:
+			return 'jueves'
+			break
+		case 5:
+			return 'viernes'
+			break
+		case 6:
+			return 'sabado'
+			break
+	}
+}
+
 function setFechas(now = hoy) {
 	const tituloCalendario = document.getElementById('tabla-titulo')
 
@@ -61,6 +87,7 @@ function setFechas(now = hoy) {
 		const span = document.createElement('td')
 		const buttonDay = document.createElement('button')
 		span.appendChild(buttonDay)
+		span.setAttribute('headers', setIdTd(index))
 		buttonDay.setAttribute('tabindex', '-1')
 		buttonDay.classList.add('btn-calendar')
 		span.classList.add('min-w')

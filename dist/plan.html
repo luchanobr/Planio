@@ -14,6 +14,8 @@
 				class="btn-icon d-flex justify-content-center align-items-center"
 				aria-label="volver a la pagina anterior"
 				id="volver"
+				href="/"
+				rel="prev"
 			>
 				<i class="fas fa-arrow-left fa-lg" aria-hidden="true"></i>
 			</a>
@@ -37,32 +39,32 @@
 						</caption>
 						<thead class="w100">
 							<tr class="text-center">
-								<th scope="col">
-									<span aria-hidden="true"> D</span
+								<th scope="col" id="domingo">
+									<span aria-hidden="true"> D </span
 									><span class="sr-only">Domingo</span>
 								</th>
-								<th scope="col">
-									<span aria-hidden="true"> L</span
+								<th scope="col" id="lunes">
+									<span aria-hidden="true"> L </span
 									><span class="sr-only">lunes</span>
 								</th>
-								<th scope="col">
-									<span aria-hidden="true"> M</span
+								<th scope="col" id="martes">
+									<span aria-hidden="true"> M </span
 									><span class="sr-only">Martes</span>
 								</th>
-								<th scope="col">
-									<span aria-hidden="true"> M</span
+								<th scope="col" id="miercoles">
+									<span aria-hidden="true"> M </span
 									><span class="sr-only">Miercoles</span>
 								</th>
-								<th scope="col">
-									<span aria-hidden="true"> J</span
+								<th scope="col" id="jueves">
+									<span aria-hidden="true"> J </span
 									><span class="sr-only">Jueves</span>
 								</th>
-								<th scope="col">
-									<span aria-hidden="true"> V</span
+								<th scope="col" id="viernes">
+									<span aria-hidden="true"> V </span
 									><span class="sr-only">Viernes</span>
 								</th>
-								<th scope="col">
-									<span aria-hidden="true"> S</span
+								<th scope="col" id="sabado">
+									<span aria-hidden="true"> S </span
 									><span class="sr-only">Sabado</span>
 								</th>
 							</tr>
@@ -96,7 +98,11 @@
 					id="nav"
 				>
 					<li>
-						<a href="/plan.html" aria-current="page" class="btn-icon brand" aria-label="Plan Semanal"
+						<a
+							href="/plan.html"
+							aria-current="page"
+							class="btn-icon brand"
+							aria-label="Plan Semanal"
 							><i class="fas fa-home brand"></i
 						></a>
 					</li>

@@ -82,7 +82,7 @@ function setOpciones() {
 
 							<p class="white w50 mr-05 display-inline">
 								<span class="sr-only">Tiempo de preparación </span>
-								<i class="far fa-clock fa-sm" aria-hidden="True"></i> ${receta.tiempo} min
+								<i class="far fa-clock fa-sm" aria-hidden="true"></i> ${receta.tiempo} min
 							</p>
 							<p class="white w50 ml-05 display-inline">
 								<span class="sr-only">Costo </span>
