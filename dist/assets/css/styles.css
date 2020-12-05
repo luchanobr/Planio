@@ -812,7 +812,6 @@ a[href]:focus {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	overflow-y: scroll;
 }
 
 .expand {
@@ -861,7 +860,6 @@ a[href]:focus {
 	flex-wrap: wrap;
 	justify-content: center;
 	height: auto;
-	overflow-y: scroll;
 }
 
 .main-receta {
