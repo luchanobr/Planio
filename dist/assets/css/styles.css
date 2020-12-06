@@ -803,7 +803,7 @@ a[href]:focus {
 }
 
 .tabs {
-	height: 90vh;
+	height: 95vh;
 	z-index: 10;
 	margin-top: -10%;
 	background: #fff;
@@ -1070,6 +1070,8 @@ a:focus {
 .btn-calendar {
 	border: 0;
 	background: transparent;
+	margin: 0;
+	padding: 0;
 }
 
 .btn-calendar:focus {

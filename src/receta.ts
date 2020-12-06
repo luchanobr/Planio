@@ -46,7 +46,7 @@ function setReceta(receta: Receta) {
 		url(${receta.img}); background-size: cover">
 				<div class="w100 d-flex justify-content-between flex-wrap align-self-start">
 				<a class="btn-icon white d-flex justify-content-center align-items-center" id="volver" aria-label="volver a la pagina anterior" href="/" rel="prev" >
-					<i class="fas fa-arrow-left fa-2x" aria-hidden="true"></i>
+					<i class="fas fa-arrow-left fa-lg" aria-hidden="true"></i>
 				</a>
 				<button class="btn-icon white" aria-label="agregar a favoritos" >
 						<i class="far fa-heart fa-2x" aria-hidden="true"></i>
