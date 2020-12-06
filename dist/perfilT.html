@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Planio - Creacion de perfil - Paso 2 de 4</title>
+		<script src="perfilT.bundle.js" defer></script>
+		<link rel="stylesheet" href="./assets/css/styles.css" />
+		<link rel="stylesheet" href="./assets/css/all.css" />
+	</head>
+	<body>
+		<header
+			class="d-flex align-items-center justify-content-spaceEvenly flex-grow"
+		>
+			<a
+				href="/"
+				class="btn-icon black d-flex justify-content-center align-items-center"
+				aria-label="volver a la página anterior"
+				id="volver"
+				rel="prev"
+			>
+				<i class="fas fa-arrow-left fa-lg" aria-hidden="true"></i>
+			</a>
+
+			<p class="perfil flex-grow text-center">Creación del perfil</p>
+			<div class="div-header"></div>
+		</header>
+		<main>
+			<h1 class="text-center">Tiempo en la cocina</h1>
+			<p class="text-center px-1">
+				¿Cuánto tiempo le dedicas a la preparación de tus comidas?
+			</p>
+
+			<form action="">
+				<fieldset>
+					<legend class="sr-only"></legend>
+					<div class="d-flex flex-column align-content-center flex-wrap">
+						<div
+							class="d-flex justify-content-center flex-column w80 align-content-center my-1"
+						>
+							<input
+								type="radio"
+								class="radio"
+								name="tiempo"
+								class="radio"
+								id="20"
+							/>
+							<label for="20" class="radio-label">Menos de 20 minutos</label>
+						</div>
+						<div
+							class="d-flex justify-content-center flex-column w80 align-content-center my-1"
+						>
+							<input
+								type="radio"
+								class="radio"
+								name="tiempo"
+								class="radio"
+								id="40"
+							/>
+							<label for="40" class="radio-label">Menos de 40 minutos</label>
+						</div>
+						<div
+							class="d-flex justify-content-center flex-column w80 align-content-center my-1"
+						>
+							<input
+								type="radio"
+								class="radio"
+								name="tiempo"
+								class="radio"
+								id="60"
+							/>
+							<label for="60" class="radio-label">Menos de 60 minutos</label>
+						</div>
+						<div
+							class="d-flex justify-content-center flex-column w80 align-content-center my-1"
+						>
+							<input
+								type="radio"
+								class="radio"
+								name="tiempo"
+								class="radio"
+								id="mas"
+							/>
+							<label for="mas" class="radio-label">Lo que sea necesario</label>
+						</div>
+					</div>
+				</fieldset>
+
+				<input type="submit" value="Continuar" class="btn" id="perfilTButton" />
+			</form>
+			<p class="text-light mt-1 text-center w100">Paso 2 de 4</p>
+		</main>
+	</body>
+</html>

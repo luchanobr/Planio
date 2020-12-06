@@ -14,6 +14,7 @@
 :root {
 	/* verde viejo  #00c7ac */
 	--brand: #673ab7;
+	--orange: rgba(255, 141, 47, 0.938);
 	--black: #1f1c1c;
 	--grey: #403c3c;
 	--lightGrey: #dedede;
@@ -152,7 +153,7 @@ button:focus {
 }
 
 .fondo {
-	background: linear-gradient(rgba(0, 0, 05, 0.4), rgba(0, 0, 0, 0.4)),
+	background: linear-gradient(rgba(0, 0, 05, 0.6), rgba(0, 0, 0, 0.6)),
 		url('../img/indexFondo.jpg');
 	background-size: cover;
 }
@@ -163,8 +164,8 @@ button:focus {
 }
 
 .powered {
-	font-weight: 300;
-	font-size: 0.8rem;
+	font-weight: 400;
+	font-size: 1rem;
 	color: #fff;
 }
 
@@ -369,17 +370,13 @@ fieldset {
 }
 
 input:checked + .radio-label {
-	background: linear-gradient(
-		rgba(103, 58, 183, 0.5),
-		rgba(103, 58, 183, 0.05)
-	);
+	background: rgba(103, 58, 183);
+	color: white;
 }
 
 input:checked + .input-label {
-	background: linear-gradient(
-		rgba(103, 58, 183, 0.5),
-		rgba(103, 58, 183, 0.05)
-	);
+	background: rgba(103, 58, 183);
+	color: white;
 }
 
 input:focus + .radio-label {
@@ -388,6 +385,14 @@ input:focus + .radio-label {
 
 input:focus + .input-label {
 	border: 2px solid var(--brand) !important;
+}
+
+input:checked:focus + .radio-label {
+	border: 2px solid var(--orange) !important;
+}
+
+input:checked:focus + .input-label {
+	border: 2px solid var(--orange) !important;
 }
 
 input[type='submit']:focus {
@@ -1014,9 +1019,11 @@ table {
 
 .btn-link:focus {
 	background-color: var(--black);
-	color: white;
+	color: white !important;
 	border-radius: 0.5rem;
+	border: 2px solid var(--black) !important;
 }
+
 .mr-45px {
 	margin-right: 45px;
 }
@@ -1081,4 +1088,16 @@ a:focus {
 .h2-tab {
 	font-size: inherit;
 	font-weight: 600;
+}
+.btn-index {
+	padding: 1rem 1rem;
+	font-size: 1rem;
+	font-weight: 500;
+	width: 80%;
+	color: white !important;
+	border-radius: 0.5rem;
+	background-color: var(--brand);
+	text-align: center;
+	align-self: center;
+	margin-top: 2rem;
 }

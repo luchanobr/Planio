@@ -2,11 +2,12 @@
 
 import { removeStore } from './store'
 
-async function cargando() {
+async function cargando(e: Event) {
+	e.preventDefault()
 	removeStore()
-	await setTimeout(function () {
-		location.href = `http://${location.host}/perfil1.html`
-	}, 5000)
-}
 
-document.addEventListener('load', cargando, true)
+	location.href = `http://${location.host}/perfil1.html`
+}
+const comenzar = document.getElementById('comenzar')
+
+comenzar.addEventListener('click', cargando, true)

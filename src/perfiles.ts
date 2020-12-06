@@ -10,7 +10,7 @@ function goToPerfil2(event: Event) {
 	const data: PlanioStore = {} as PlanioStore
 	setStorage(data)
 	event.preventDefault()
-	location.href = `http://${location.host}/perfil2.html`
+	location.href = `http://${location.host}/perfilT.html`
 }
 
 const perfil2Button = document.getElementById(

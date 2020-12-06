@@ -8,6 +8,7 @@ module.exports = {
 		perfiles: './src/perfiles.ts',
 		swipe: './src/swipe.ts',
 		perfil4: './src/perfil4.ts',
+		perfilT: './src/perfilT.ts',
 		plan: './src/plan.ts',
 		recetas: './src/recetas.ts',
 		receta: './src/receta.ts',
