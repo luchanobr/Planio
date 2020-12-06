@@ -46,10 +46,10 @@ function setReceta(receta: Receta) {
 		url(${receta.img}); background-size: cover">
 				<div class="w100 d-flex justify-content-between flex-wrap align-self-start">
 				<a class="btn-icon white d-flex justify-content-center align-items-center" id="volver" aria-label="volver a la pagina anterior" href="/" rel="prev" >
-					<i class="fas fa-arrow-left fa-lg" aria-hidden="true"></i>
+					<i class="fas fa-arrow-left fa-2x" aria-hidden="true"></i>
 				</a>
 				<button class="btn-icon white" aria-label="agregar a favoritos" >
-						<i class="far fa-heart fa-lg" aria-hidden="true"></i>
+						<i class="far fa-heart fa-2x" aria-hidden="true"></i>
 				</button>
 
 
@@ -70,10 +70,8 @@ function setReceta(receta: Receta) {
 				</div>
 			</div>
 			<div id="tabs" class="tabs" >
-				<div class="expand-container">
 
-				</div>
-				<div class="" id="tabs-container">
+
 
 				<div class="tab-container" role="tablist" aria-label="Pestañas informacion de la receta"  >
 					<button class="tab-button text-underline" role="tab" id="tb1" aria-selected="true" tabindex="0" > Ingredientes</button>

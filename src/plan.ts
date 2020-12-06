@@ -164,7 +164,7 @@ function setComidas() {
 		card.innerHTML = `<div class="d-flex justify-content-between mt-05 w100">
 						<h2 class="text-light white ml-1 mt-05 capitalize">${tipoComida(index)}</h2>
 						<button class="btn-icon white mr-05">
-							<i class="far fa-heart fa-lg" aria-label="agregar a favoritos"></i>
+							<i class="far fa-heart fa-2x" aria-label="agregar a favoritos"></i>
 						</button>
 					</div>
 					<h3 class="white ml-1 titulo-receta w66">
