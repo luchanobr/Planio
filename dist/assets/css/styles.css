@@ -816,6 +816,8 @@ a[href]:focus {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
 }
 
 .expand {
@@ -1009,7 +1011,7 @@ table {
 	border: 0;
 	font-size: 0.8rem;
 	font-weight: 200;
-	text-decoration: underline;
+	text-decoration: underline !important;
 	color: var(--black);
 	background: transparent;
 }
