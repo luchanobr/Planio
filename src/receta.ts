@@ -38,10 +38,10 @@ function setReceta(receta: Receta) {
 	}
 
 	main.innerHTML = `<div class="receta-video"  id="video" style=" background: linear-gradient(
-			rgba(0, 0, 0, 0.5),
-			rgba(0, 0, 0, 0.5),
-			rgba(0, 0, 0, 0.5),
-			rgba(0, 0, 0, 0.5)
+			rgba(0, 0, 0, 0.6),
+			rgba(0, 0, 0, 0.6),
+			rgba(0, 0, 0, 0.6),
+			rgba(0, 0, 0, 0.6)
 		),
 		url(${receta.img}); background-size: cover">
 				<div class="w100 d-flex justify-content-between flex-wrap align-self-start">
