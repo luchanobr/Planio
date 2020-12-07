@@ -808,7 +808,7 @@ a[href]:focus {
 }
 
 .tabs {
-	height: 95vh;
+	height: 110vh;
 	z-index: 10;
 	margin-top: -10%;
 	background: #fff;
