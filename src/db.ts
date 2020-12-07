@@ -48,14 +48,14 @@ export const preferencias: Preferencia[] = [
 	{
 		url: 'assets/img/huevos.png',
 		fondo: 'rgb(190, 182, 140)',
-		titulo: 'huevos',
+		titulo: 'Huevos',
 		descripcion:
 			'Es un alimento muy práctico y altamente nutritivo que debe formar parte de la dieta habitual.',
 	},
 	{
 		url: 'assets/img/brocoli.png',
 		fondo: 'rgb(174, 254, 209)',
-		titulo: 'Brocoli',
+		titulo: 'Brócoli',
 		descripcion:
 			'Rico en proteínas, hierro, calcio, vitaminas y minerales, un producto esencial para aquellos que buscan un alimento saludable.',
 	},
